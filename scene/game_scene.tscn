@@ -1,0 +1,134 @@
+[gd_scene load_steps=4 format=3 uid="uid://cpmic0eif1dup"]
+
+[ext_resource type="PackedScene" uid="uid://c7s61c8fyguyi" path="res://assets/scene/ground/brick.tscn" id="1_qsiw5"]
+[ext_resource type="PackedScene" uid="uid://dbr1d3ag3is1e" path="res://assets/sprite/entity/player.tscn" id="2_1tamk"]
+[ext_resource type="PackedScene" uid="uid://disiro1pn17a" path="res://assets/sprite/entity/fish.tscn" id="3_t26x3"]
+
+[node name="game_scene" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 576.0
+offset_bottom = 324.0
+color = Color(0.151996, 0.151996, 0.151996, 1)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_enabled = true
+
+[node name="bricks" type="Node2D" parent="."]
+position = Vector2(0, 192)
+
+[node name="BrickSprite" parent="bricks" instance=ExtResource("1_qsiw5")]
+position = Vector2(-544, 32)
+
+[node name="BrickSprite2" parent="bricks" instance=ExtResource("1_qsiw5")]
+position = Vector2(-480, 32)
+
+[node name="BrickSprite3" parent="bricks" instance=ExtResource("1_qsiw5")]
+position = Vector2(-416, 32)
+
+[node name="BrickSprite4" parent="bricks" instance=ExtResource("1_qsiw5")]
+position = Vector2(-352, 32)
+
+[node name="BrickSprite5" parent="bricks" instance=ExtResource("1_qsiw5")]
+position = Vector2(-288, 32)
+
+[node name="BrickSprite6" parent="bricks" instance=ExtResource("1_qsiw5")]
+position = Vector2(-224, 32)
+
+[node name="BrickSprite7" parent="bricks" instance=ExtResource("1_qsiw5")]
+position = Vector2(-160, 32)
+
+[node name="BrickSprite8" parent="bricks" instance=ExtResource("1_qsiw5")]
+position = Vector2(-96, 32)
+
+[node name="BrickSprite9" parent="bricks" instance=ExtResource("1_qsiw5")]
+position = Vector2(-32, 32)
+
+[node name="BrickSprite10" parent="bricks" instance=ExtResource("1_qsiw5")]
+position = Vector2(32, 32)
+
+[node name="BrickSprite11" parent="bricks" instance=ExtResource("1_qsiw5")]
+position = Vector2(96, 32)
+
+[node name="BrickSprite12" parent="bricks" instance=ExtResource("1_qsiw5")]
+position = Vector2(160, 32)
+
+[node name="BrickSprite13" parent="bricks" instance=ExtResource("1_qsiw5")]
+position = Vector2(224, 32)
+
+[node name="BrickSprite14" parent="bricks" instance=ExtResource("1_qsiw5")]
+position = Vector2(288, 32)
+
+[node name="BrickSprite15" parent="bricks" instance=ExtResource("1_qsiw5")]
+position = Vector2(352, 32)
+
+[node name="BrickSprite16" parent="bricks" instance=ExtResource("1_qsiw5")]
+position = Vector2(416, 32)
+
+[node name="BrickSprite17" parent="bricks" instance=ExtResource("1_qsiw5")]
+position = Vector2(480, 32)
+
+[node name="BrickSprite18" parent="bricks" instance=ExtResource("1_qsiw5")]
+position = Vector2(544, 32)
+
+[node name="BrickSprite19" parent="bricks" instance=ExtResource("1_qsiw5")]
+position = Vector2(-544, 96)
+
+[node name="BrickSprite20" parent="bricks" instance=ExtResource("1_qsiw5")]
+position = Vector2(-480, 96)
+
+[node name="BrickSprite21" parent="bricks" instance=ExtResource("1_qsiw5")]
+position = Vector2(-416, 96)
+
+[node name="BrickSprite22" parent="bricks" instance=ExtResource("1_qsiw5")]
+position = Vector2(-352, 96)
+
+[node name="BrickSprite23" parent="bricks" instance=ExtResource("1_qsiw5")]
+position = Vector2(-288, 96)
+
+[node name="BrickSprite24" parent="bricks" instance=ExtResource("1_qsiw5")]
+position = Vector2(-224, 96)
+
+[node name="BrickSprite25" parent="bricks" instance=ExtResource("1_qsiw5")]
+position = Vector2(-160, 96)
+
+[node name="BrickSprite26" parent="bricks" instance=ExtResource("1_qsiw5")]
+position = Vector2(-96, 96)
+
+[node name="BrickSprite27" parent="bricks" instance=ExtResource("1_qsiw5")]
+position = Vector2(-32, 96)
+
+[node name="BrickSprite28" parent="bricks" instance=ExtResource("1_qsiw5")]
+position = Vector2(32, 96)
+
+[node name="BrickSprite29" parent="bricks" instance=ExtResource("1_qsiw5")]
+position = Vector2(96, 96)
+
+[node name="BrickSprite30" parent="bricks" instance=ExtResource("1_qsiw5")]
+position = Vector2(160, 96)
+
+[node name="BrickSprite31" parent="bricks" instance=ExtResource("1_qsiw5")]
+position = Vector2(224, 96)
+
+[node name="BrickSprite32" parent="bricks" instance=ExtResource("1_qsiw5")]
+position = Vector2(288, 96)
+
+[node name="BrickSprite33" parent="bricks" instance=ExtResource("1_qsiw5")]
+position = Vector2(352, 96)
+
+[node name="BrickSprite34" parent="bricks" instance=ExtResource("1_qsiw5")]
+position = Vector2(416, 96)
+
+[node name="BrickSprite35" parent="bricks" instance=ExtResource("1_qsiw5")]
+position = Vector2(480, 96)
+
+[node name="BrickSprite36" parent="bricks" instance=ExtResource("1_qsiw5")]
+position = Vector2(544, 96)
+
+[node name="Player" parent="." instance=ExtResource("2_1tamk")]
+position = Vector2(-456, 40)
+
+[node name="Fish" parent="." instance=ExtResource("3_t26x3")]
+position = Vector2(472, 128)
