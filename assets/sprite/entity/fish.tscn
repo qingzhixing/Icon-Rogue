@@ -1,13 +1,17 @@
 [gd_scene load_steps=4 format=3 uid="uid://disiro1pn17a"]
 
 [ext_resource type="Texture2D" uid="uid://oe1qhihwu6kt" path="res://assets/sprite/entity/Fish.png" id="1_arv1m"]
-[ext_resource type="Script" path="res://assets/script/entity/fish.gd" id="1_bqoj2"]
+[ext_resource type="Script" path="res://script/entity/fish.gd" id="1_bqoj2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4xwpm"]
 size = Vector2(232, 128)
 
 [node name="Fish" type="RigidBody2D"]
+collision_layer = 4
+can_sleep = false
+lock_rotation = true
 script = ExtResource("1_bqoj2")
+speed = 40.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-12, 0)
@@ -17,3 +21,11 @@ shape = SubResource("RectangleShape2D_4xwpm")
 position = Vector2(-13.76, -3.33786e-06)
 scale = Vector2(0.64, 0.64)
 texture = ExtResource("1_arv1m")
+
+[node name="Entity Area" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Entity Area"]
+position = Vector2(-12, 0)
+shape = SubResource("RectangleShape2D_4xwpm")

@@ -13,13 +13,19 @@ config_version=5
 config/name="Icon Rogue"
 run/main_scene="res://scene/game_scene.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
-config/icon="res://icon.svg"
+config/icon="res://assets/app_icon/icon.svg"
 
 [layer_names]
 
-2d_physics/layer_1="场景"
-2d_physics/layer_2="玩家"
-2d_physics/layer_3="敌人"
+2d_physics/layer_1="Ground"
+2d_physics/layer_2="Player"
+2d_physics/layer_3="Enemy"
+2d_physics/layer_4="Player Weapon"
+2d_physics/layer_5="Enemy Weapon"
+
+[physics]
+
+2d/run_on_separate_thread=true
 
 [rendering]
 
