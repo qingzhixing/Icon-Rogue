@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://disiro1pn17a"]
+[gd_scene load_steps=5 format=3 uid="uid://disiro1pn17a"]
 
 [ext_resource type="Texture2D" uid="uid://oe1qhihwu6kt" path="res://assets/sprite/entity/Fish.png" id="1_arv1m"]
 [ext_resource type="Script" path="res://script/entity/fish.gd" id="1_bqoj2"]
+[ext_resource type="PackedScene" uid="uid://mtvxkjh2dgyq" path="res://assets/sprite/entity/entity_data.tscn" id="2_1yog8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4xwpm"]
 size = Vector2(232, 128)
@@ -11,7 +12,9 @@ collision_layer = 4
 can_sleep = false
 lock_rotation = true
 script = ExtResource("1_bqoj2")
-speed = 40.0
+
+[node name="EntityData" parent="." instance=ExtResource("2_1yog8")]
+speed = 40
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-12, 0)
@@ -29,3 +32,6 @@ collision_mask = 10
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Entity Area"]
 position = Vector2(-12, 0)
 shape = SubResource("RectangleShape2D_4xwpm")
+
+[connection signal="on_damaged" from="EntityData" to="." method="on_damaged"]
+[connection signal="area_entered" from="Entity Area" to="." method="on_area_entered"]
