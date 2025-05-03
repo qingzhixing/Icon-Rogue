@@ -223,6 +223,6 @@ texture = ExtResource("5_ud8a0")
 
 [node name="Sword" parent="." instance=ExtResource("9_ojbyw")]
 position = Vector2(-328, 32)
-interval_ms = 500
+interval_ms = 1000
 
 [connection signal="update_player_health_display" from="Player" to="UI/MarginContainer/VBoxContainer/HBoxContainer/Player Health" method="update_player_health_display"]

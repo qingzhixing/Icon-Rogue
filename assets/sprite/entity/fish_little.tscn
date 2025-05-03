@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://vsml1xr0karo"]
+
+[ext_resource type="Script" path="res://script/entity/fish.gd" id="1_a4wtk"]
+[ext_resource type="PackedScene" uid="uid://mtvxkjh2dgyq" path="res://assets/sprite/entity/entity_data.tscn" id="2_uhb0b"]
+[ext_resource type="Texture2D" uid="uid://oe1qhihwu6kt" path="res://assets/sprite/entity/Fish.png" id="3_kp4wa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ulx4t"]
+size = Vector2(120, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u3n5c"]
+size = Vector2(120, 64)
+
+[node name="Fish Little" type="RigidBody2D"]
+modulate = Color(0.376471, 1, 1, 1)
+position = Vector2(-208, 24)
+collision_layer = 4
+mass = 0.1
+can_sleep = false
+lock_rotation = true
+script = ExtResource("1_a4wtk")
+
+[node name="EntityData" parent="." instance=ExtResource("2_uhb0b")]
+max_health = 30
+health = 30
+speed = 80
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-68, -32)
+shape = SubResource("RectangleShape2D_ulx4t")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-70.88, -32)
+scale = Vector2(0.32, 0.32)
+texture = ExtResource("3_kp4wa")
+
+[node name="Entity Area" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Entity Area"]
+position = Vector2(-68, -32)
+shape = SubResource("RectangleShape2D_u3n5c")
+
+[connection signal="on_damaged" from="EntityData" to="." method="on_damaged"]
+[connection signal="on_death" from="EntityData" to="." method="on_death"]
+[connection signal="area_entered" from="Entity Area" to="." method="on_area_entered"]
