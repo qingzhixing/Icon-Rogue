@@ -6,7 +6,7 @@
 [ext_resource type="Theme" uid="uid://bvbf0bvyvo0vp" path="res://resources/theme/normal_theme.tres" id="2_ouui0"]
 [ext_resource type="PackedScene" uid="uid://df301vaq34gtk" path="res://scene/ground.tscn" id="2_txacy"]
 [ext_resource type="PackedScene" uid="uid://disiro1pn17a" path="res://assets/sprite/entity/fish.tscn" id="3_t26x3"]
-[ext_resource type="Script" path="res://script/ui/player_health.gd" id="3_x387o"]
+[ext_resource type="Script" uid="uid://beg5my03cqqsl" path="res://script/ui/player_health.gd" id="3_x387o"]
 [ext_resource type="Texture2D" uid="uid://bevkwdjs11wym" path="res://assets/map_element/decorations/cloud.png" id="5_ud8a0"]
 [ext_resource type="PackedScene" uid="uid://balgi0d8jpxym" path="res://assets/sprite/weapon/Sword.tscn" id="9_ojbyw"]
 

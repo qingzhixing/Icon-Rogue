@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://disiro1pn17a"]
 
 [ext_resource type="Texture2D" uid="uid://oe1qhihwu6kt" path="res://assets/sprite/entity/Fish.png" id="1_arv1m"]
-[ext_resource type="Script" path="res://script/entity/fish.gd" id="1_bqoj2"]
+[ext_resource type="Script" uid="uid://bpwgat4hfple5" path="res://script/entity/fish.gd" id="1_bqoj2"]
 [ext_resource type="PackedScene" uid="uid://mtvxkjh2dgyq" path="res://assets/sprite/entity/entity_data.tscn" id="2_1yog8"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6t0ec"]

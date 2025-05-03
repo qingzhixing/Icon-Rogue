@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://vsml1xr0karo"]
 
-[ext_resource type="Script" path="res://script/entity/fish.gd" id="1_a4wtk"]
+[ext_resource type="Script" uid="uid://bpwgat4hfple5" path="res://script/entity/fish.gd" id="1_a4wtk"]
 [ext_resource type="PackedScene" uid="uid://mtvxkjh2dgyq" path="res://assets/sprite/entity/entity_data.tscn" id="2_uhb0b"]
 [ext_resource type="Texture2D" uid="uid://oe1qhihwu6kt" path="res://assets/sprite/entity/Fish.png" id="3_kp4wa"]
 
