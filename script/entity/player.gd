@@ -8,6 +8,7 @@ class_name Player
 
 func on_area_entered(area: Area2D):
 	if area.get_parent() is Fish:
+		GlobalSoundPlayer.play_sfx("injured/hurt" + str(randi() % 2 + 1) + ".ogg");
 		# Apply knock back force to fish
 		var fish = area.get_parent() as Fish;
 		fish.linear_velocity = Vector2(knock_back_velocity, fish.linear_velocity.y)

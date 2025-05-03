@@ -15,6 +15,10 @@ run/main_scene="res://scene/game_scene.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
 config/icon="res://assets/app_icon/icon.svg"
 
+[autoload]
+
+GlobalSoundPlayer="*res://script/game_control/global_sound_player.gd"
+
 [layer_names]
 
 2d_physics/layer_1="Ground"

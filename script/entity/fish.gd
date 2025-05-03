@@ -4,6 +4,7 @@ class_name Fish extends RigidBody2D
 
 func on_area_entered(area: Area2D):
 	if area.get_parent() is Player:
+		GlobalSoundPlayer.play_sfx("enemy/fish/fish" + str(randi() % 2 + 1) + ".ogg");
 		var player = area.get_parent() as Player
 		# Take damage to player
 		var player_entity = player.entity_data;
