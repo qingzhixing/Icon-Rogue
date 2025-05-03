@@ -4,17 +4,18 @@ extends RigidBody2D
 
 @export_category("Weapon")
 @export var knockback = 30
-@export var interval_ms = 200;
+@export var interval_sec = 0.3;
 
 var _entered_entity: Array;
-var _last_attack_tick = 0
+var _last_attack_tick = -100
 
 func _ready() -> void:
-	_last_attack_tick = Time.get_ticks_msec();
+	linear_velocity.x = entity_data.speed;
 
+@warning_ignore("unused_parameter")
 func _process(delta: float) -> void:
 	var current_tick = Time.get_ticks_msec();
-	if current_tick - _last_attack_tick < interval_ms:
+	if current_tick - _last_attack_tick < interval_sec * 1000:
 		return
 	_last_attack_tick = current_tick;
 	

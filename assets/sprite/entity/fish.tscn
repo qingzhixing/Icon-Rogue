@@ -22,7 +22,7 @@ script = ExtResource("1_bqoj2")
 [node name="EntityData" parent="." instance=ExtResource("2_1yog8")]
 max_health = 80
 health = 80
-speed = 20
+speed = 40
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-16, 0)

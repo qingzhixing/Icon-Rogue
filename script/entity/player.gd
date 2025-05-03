@@ -5,11 +5,10 @@ class_name Player
 @export var knock_back_velocity = 300
 
 @onready var entity_data: EntityData = $EntityData
-
-signal update_player_health_display(health: int);
+@onready var ui: UIController = %UI
 
 func _ready():
-	update_player_health_display.emit(entity_data.health);
+	ui.update_player_health_display(entity_data.health);
 
 func on_area_entered(area: Area2D):
 	if area.get_parent() is Fish:
@@ -23,18 +22,17 @@ func on_area_entered(area: Area2D):
 		fish_entity.take_damage(entity_data.attack, entity_data);
 
 
+@warning_ignore("unused_parameter")
 func on_damaged(damage: int, source: EntityData) -> void:
 	GlobalSoundPlayer.play_sfx("injured/hurt" + str(randi() % 2 + 1) + ".ogg", 0.5);
-	update_player_health_display.emit(entity_data.health);
-	pass # Replace with function body.
+	ui.update_player_health_display(entity_data.health);
 
 
 func on_death() -> void:
-	update_player_health_display.emit(entity_data.health);
+	ui.update_player_health_display(entity_data.health);
 	print("Player Died!");
 	# Sound Effect
 	GlobalSoundPlayer.play_sfx("game_state/Lose.ogg");
 	# respawn
 	entity_data.health = entity_data.max_health;
-	update_player_health_display.emit(entity_data.health);
-	pass # Replace with function body.
+	ui.update_player_health_display(entity_data.health);
