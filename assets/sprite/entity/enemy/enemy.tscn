@@ -5,7 +5,6 @@
 [ext_resource type="Script" uid="uid://bd1oxv0hkmcqm" path="res://script/entity/entity_data.gd" id="3_v0gmk"]
 
 [node name="Enemy" type="RigidBody2D"]
-modulate = Color(0.494118, 1, 1, 1)
 collision_layer = 4
 mass = 0.1
 can_sleep = false

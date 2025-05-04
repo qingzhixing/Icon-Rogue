@@ -1,0 +1,141 @@
+[gd_scene load_steps=8 format=3 uid="uid://dpl67feoxnf11"]
+
+[ext_resource type="Texture2D" uid="uid://pppou07anly6" path="res://assets/sprite/entity/enemy/explode.png" id="1_ptjiq"]
+[ext_resource type="Script" uid="uid://dtqgpfm5ommaw" path="res://script/entity/explode.gd" id="1_vlxgw"]
+[ext_resource type="Script" uid="uid://bd1oxv0hkmcqm" path="res://script/entity/entity_data.gd" id="3_mcdmu"]
+
+[sub_resource type="Animation" id="Animation_2qe4e"]
+resource_name = "Explode"
+length = 0.5
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Explode Sprite:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1.8, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Explode Sprite:scale:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0.366667, -0.25, 0, 0.25, 0, 0.938889, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Explode Sprite:scale:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0.366667, -0.25, 0, 0.25, 0, 0.938889, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Area2D/CollisionShape2D:scale:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 2.725, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Area2D/CollisionShape2D:scale:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 2.725, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+
+[sub_resource type="Animation" id="Animation_5qpfr"]
+length = 0.5
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Explode Sprite:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Explode Sprite:scale:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.366667, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Explode Sprite:scale:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.366667, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5qpfr"]
+_data = {
+&"Explode": SubResource("Animation_2qe4e"),
+&"RESET": SubResource("Animation_5qpfr")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vlxgw"]
+radius = 32.0
+
+[node name="Explode" type="Node2D"]
+script = ExtResource("1_vlxgw")
+
+[node name="Explode Sprite" type="Sprite2D" parent="."]
+modulate = Color(0.772549, 0.341176, 0.121569, 1)
+self_modulate = Color(1, 1, 1, 0.733333)
+position = Vector2(1.14441e-05, 1.14441e-05)
+scale = Vector2(0.366667, 0.366667)
+texture = ExtResource("1_ptjiq")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_5qpfr")
+}
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(2.725, 2.725)
+shape = SubResource("CircleShape2D_vlxgw")
+
+[node name="EntityData" type="Node" parent="."]
+script = ExtResource("3_mcdmu")
+max_health = 1
+health = 1
+attack = 30
+speed = 0
+knockback_velocity = Vector2(0, 0)
+metadata/_custom_type_script = "uid://bd1oxv0hkmcqm"
+
+[connection signal="area_entered" from="Area2D" to="." method="on_area_entered"]

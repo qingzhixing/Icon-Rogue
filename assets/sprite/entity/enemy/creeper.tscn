@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bamq47f6ekvtv"]
+[gd_scene load_steps=8 format=3 uid="uid://bamq47f6ekvtv"]
 
 [ext_resource type="Script" uid="uid://cnoj6jxmts4ix" path="res://script/entity/creeper.gd" id="1_4gd27"]
 [ext_resource type="Script" uid="uid://cy0co16ydd3w" path="res://script/entity/enemy_entity.gd" id="1_bkgrr"]
@@ -11,8 +11,10 @@ size = Vector2(96, 96)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4gd27"]
 size = Vector2(96, 96)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_4gd27"]
+radius = 80.0
+
 [node name="Creeper" type="RigidBody2D"]
-modulate = Color(0.494118, 1, 1, 1)
 collision_layer = 4
 mass = 0.1
 can_sleep = false
@@ -43,6 +45,14 @@ collision_mask = 10
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Entity Area"]
 shape = SubResource("RectangleShape2D_4gd27")
 
+[node name="Explode Area" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Explode Area"]
+shape = SubResource("CircleShape2D_4gd27")
+
 [connection signal="on_damaged" from="EntityData" to="." method="on_damaged"]
 [connection signal="on_death" from="EntityData" to="." method="on_death"]
 [connection signal="area_entered" from="Entity Area" to="EnemyEntity" method="on_area_entered"]
+[connection signal="area_entered" from="Explode Area" to="EnemyEntity" method="on_area_entered"]
