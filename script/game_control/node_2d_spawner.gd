@@ -30,9 +30,11 @@ func _process(delta):
 	# Set the life time of the instance
 	var timer: Timer = Timer.new();
 	timer.set_wait_time(instance_life_time_sec);
+	var weak_instance = weakref(instance) as Node2D;
 	timer.timeout.connect(
 		func():
-			instance.queue_free();
+			if is_instance_valid(weak_instance):
+				weak_instance.queue_free();
 			timer.queue_free();
 	);
 	add_child(timer);

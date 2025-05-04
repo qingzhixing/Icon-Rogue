@@ -254,9 +254,8 @@ position = Vector2(29, -86)
 scale = Vector2(0.61, 0.61)
 texture = ExtResource("5_ud8a0")
 
-[node name="Node2D Spawner" parent="." instance=ExtResource("8_c8mr4")]
+[node name="Sword Spawner" parent="." instance=ExtResource("8_c8mr4")]
 position = Vector2(-456, 135)
 target_scene = ExtResource("9_ojbyw")
-
-[node name="Sword" parent="." instance=ExtResource("9_ojbyw")]
-position = Vector2(-367, 135)
+spawn_interval_sec = 1.2
+instance_life_time_sec = 3.0
