@@ -1,12 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://cvn772r5bqy13"]
+[gd_scene load_steps=5 format=3 uid="uid://cvn772r5bqy13"]
 
 [ext_resource type="Script" uid="uid://bn7xbn11j75y0" path="res://script/entity/enemy.gd" id="1_t13ef"]
 [ext_resource type="Script" uid="uid://cy0co16ydd3w" path="res://script/entity/enemy_entity.gd" id="2_4g8rn"]
 [ext_resource type="Script" uid="uid://bd1oxv0hkmcqm" path="res://script/entity/entity_data.gd" id="3_v0gmk"]
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_t13ef"]
+friction = 0.0
+
 [node name="Enemy" type="RigidBody2D"]
 collision_layer = 4
 mass = 0.1
+physics_material_override = SubResource("PhysicsMaterial_t13ef")
 can_sleep = false
 lock_rotation = true
 script = ExtResource("1_t13ef")
@@ -18,7 +22,8 @@ script = ExtResource("2_4g8rn")
 
 [node name="EntityData" type="Node" parent="."]
 script = ExtResource("3_v0gmk")
-speed = 40
+moving_direction = "right"
+max_velocity_x_abs = 60
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-13.76, -3.33786e-06)

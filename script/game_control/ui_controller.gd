@@ -8,6 +8,9 @@ class_name UIController
 func _ready() -> void:
 	game_over_overlay.visible = false;
 
-func update_player_health_display(health: int) -> void:
-	health_label.text = "Health: " + str(health)
+func update_player_health_display(entity_data: EntityData) -> void:
+	health_label.text = "Health: %d / %d" % [entity_data.health, entity_data.max_health]
 	pass # Replace with function body.
+
+func on_player_died():
+	game_over_overlay.visible = true;

@@ -12,6 +12,7 @@ height = 67.8823
 
 [node name="Sword" type="RigidBody2D"]
 collision_layer = 8
+mass = 0.001
 gravity_scale = 0.0
 lock_rotation = true
 script = ExtResource("1_cmeob")
@@ -40,7 +41,8 @@ script = ExtResource("3_a7b7q")
 max_health = 5
 health = 5
 defense = 0
-speed = 500
+moving_direction = "right"
+max_velocity_x_abs = 400
 knockback_velocity = Vector2(80, -200)
 
 [connection signal="area_entered" from="Attack Area" to="." method="on_area_entered"]

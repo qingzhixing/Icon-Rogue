@@ -1,9 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://bamq47f6ekvtv"]
+[gd_scene load_steps=9 format=3 uid="uid://bamq47f6ekvtv"]
 
 [ext_resource type="Script" uid="uid://cnoj6jxmts4ix" path="res://script/entity/creeper.gd" id="1_4gd27"]
 [ext_resource type="Script" uid="uid://cy0co16ydd3w" path="res://script/entity/enemy_entity.gd" id="1_bkgrr"]
 [ext_resource type="Script" uid="uid://bd1oxv0hkmcqm" path="res://script/entity/entity_data.gd" id="2_ugl7j"]
 [ext_resource type="Texture2D" uid="uid://d1eyo3ppyofbf" path="res://assets/sprite/entity/enemy/creeper.png" id="3_ugl7j"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_4gd27"]
+friction = 0.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2qe4e"]
 size = Vector2(80, 80)
@@ -12,11 +15,12 @@ size = Vector2(80, 80)
 size = Vector2(80, 80)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4gd27"]
-radius = 80.0
+radius = 72.0
 
 [node name="Creeper" type="RigidBody2D"]
 collision_layer = 4
 mass = 0.1
+physics_material_override = SubResource("PhysicsMaterial_4gd27")
 can_sleep = false
 lock_rotation = true
 script = ExtResource("1_4gd27")
@@ -28,7 +32,8 @@ script = ExtResource("1_bkgrr")
 script = ExtResource("2_ugl7j")
 max_health = 20
 health = 20
-speed = 20
+max_velocity_x_abs = 100
+constant_force_x_abs = 30
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -9.53674e-07)

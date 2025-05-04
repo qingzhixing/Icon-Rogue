@@ -5,7 +5,7 @@ class_name PlayerController
 @onready var ui: UIController = %UI
 
 func _ready():
-	ui.update_player_health_display(entity_data.health);
+	ui.update_player_health_display(entity_data);
 
 func on_area_entered(area: Area2D):
 	if !area.get_collision_layer_value(3):	# 仅伤害Enemy
@@ -27,14 +27,15 @@ func on_area_entered(area: Area2D):
 @warning_ignore("unused_parameter")
 func on_damaged(damage: int, source: EntityData) -> void:
 	GlobalSoundPlayer.play_sfx("injured/hurt" + str(randi() % 2 + 1) + ".ogg", 0.5);
-	ui.update_player_health_display(entity_data.health);
+	ui.update_player_health_display(entity_data);
 
 
 func on_death() -> void:
-	ui.update_player_health_display(entity_data.health);
+	ui.update_player_health_display(entity_data);
 	print("Player Died!");
 	# Sound Effect
 	GlobalSoundPlayer.play_sfx("game_state/Lose.ogg");
 	# respawn
 	entity_data.health = entity_data.max_health;
-	ui.update_player_health_display(entity_data.health);
+	ui.update_player_health_display(entity_data);
+	ui.on_player_died();

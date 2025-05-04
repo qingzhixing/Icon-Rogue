@@ -1,9 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://disiro1pn17a"]
+[gd_scene load_steps=8 format=3 uid="uid://disiro1pn17a"]
 
 [ext_resource type="Texture2D" uid="uid://oe1qhihwu6kt" path="res://assets/sprite/entity/enemy/Fish.png" id="1_arv1m"]
 [ext_resource type="Script" uid="uid://bpwgat4hfple5" path="res://script/entity/fish.gd" id="1_bqoj2"]
 [ext_resource type="Script" uid="uid://cy0co16ydd3w" path="res://script/entity/enemy_entity.gd" id="2_xnddo"]
 [ext_resource type="Script" uid="uid://bd1oxv0hkmcqm" path="res://script/entity/entity_data.gd" id="3_xnddo"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_a56cw"]
+friction = 0.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6t0ec"]
 radius = 64.0
@@ -17,6 +20,7 @@ height = 224.0
 modulate = Color(0.494118, 1, 1, 1)
 collision_layer = 4
 mass = 0.1
+physics_material_override = SubResource("PhysicsMaterial_a56cw")
 can_sleep = false
 lock_rotation = true
 script = ExtResource("1_bqoj2")
@@ -28,7 +32,8 @@ script = ExtResource("2_xnddo")
 script = ExtResource("3_xnddo")
 max_health = 80
 health = 80
-speed = 50
+max_velocity_x_abs = 150
+constant_force_x_abs = 20
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-16, 0)

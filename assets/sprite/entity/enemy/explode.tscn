@@ -150,7 +150,6 @@ script = ExtResource("3_mcdmu")
 max_health = 1
 health = 1
 attack = 30
-speed = 0
 knockback_velocity = Vector2(0, 0)
 metadata/_custom_type_script = "uid://bd1oxv0hkmcqm"
 
