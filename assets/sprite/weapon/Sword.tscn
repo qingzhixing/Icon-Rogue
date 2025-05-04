@@ -41,6 +41,7 @@ max_health = 5
 health = 5
 defense = 0
 speed = 500
+knockback_velocity = Vector2(80, -200)
 
 [connection signal="area_entered" from="Attack Area" to="." method="on_area_entered"]
 [connection signal="area_exited" from="Attack Area" to="." method="on_area_exited"]

@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://dbr1d3ag3is1e"]
 
 [ext_resource type="Texture2D" uid="uid://dcifdlgr6dggr" path="res://assets/sprite/entity/player.png" id="1_3up65"]
-[ext_resource type="Script" uid="uid://b4bvbt88nibg7" path="res://script/entity/player.gd" id="1_5nvlc"]
-[ext_resource type="PackedScene" uid="uid://mtvxkjh2dgyq" path="res://assets/sprite/entity/entity_data.tscn" id="2_il0wb"]
+[ext_resource type="Script" uid="uid://b4bvbt88nibg7" path="res://script/entity/player_controller.gd" id="1_5nvlc"]
+[ext_resource type="Script" uid="uid://bd1oxv0hkmcqm" path="res://script/entity/entity_data.gd" id="2_hcyir"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i8ryp"]
 radius = 24.0
@@ -19,8 +19,10 @@ can_sleep = false
 lock_rotation = true
 script = ExtResource("1_5nvlc")
 
-[node name="EntityData" parent="." instance=ExtResource("2_il0wb")]
+[node name="EntityData" type="Node" parent="."]
+script = ExtResource("2_hcyir")
 speed = 40
+knockback_velocity = Vector2(400, -300)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -64)

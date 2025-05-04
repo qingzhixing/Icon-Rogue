@@ -5,10 +5,10 @@
 [ext_resource type="Script" uid="uid://d1tual0n1mui1" path="res://script/game_control/ui_controller.gd" id="1_w3nls"]
 [ext_resource type="PackedScene" uid="uid://dbr1d3ag3is1e" path="res://assets/sprite/entity/player.tscn" id="2_1tamk"]
 [ext_resource type="Theme" uid="uid://bvbf0bvyvo0vp" path="res://resources/theme/normal_theme.tres" id="2_ouui0"]
-[ext_resource type="PackedScene" uid="uid://disiro1pn17a" path="res://assets/sprite/entity/fish.tscn" id="3_t26x3"]
 [ext_resource type="Texture2D" uid="uid://bevkwdjs11wym" path="res://assets/map_element/decorations/cloud.png" id="5_ud8a0"]
 [ext_resource type="PackedScene" uid="uid://b0vnif1uqsn36" path="res://scene/node2d_spawner.tscn" id="8_c8mr4"]
 [ext_resource type="PackedScene" uid="uid://balgi0d8jpxym" path="res://assets/sprite/weapon/Sword.tscn" id="9_ojbyw"]
+[ext_resource type="PackedScene" uid="uid://bamq47f6ekvtv" path="res://assets/sprite/entity/enemy/creeper.tscn" id="10_w3nls"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5w0dq"]
 
@@ -94,11 +94,8 @@ metadata/_edit_use_anchors_ = true
 position_smoothing_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("2_1tamk")]
-position = Vector2(-456, 200)
-
-[node name="Fish" parent="." instance=ExtResource("3_t26x3")]
-position = Vector2(416, 125)
-mass = 0.1
+unique_name_in_owner = true
+position = Vector2(-457.25, 200)
 
 [node name="Map Elements" type="Node2D" parent="."]
 
@@ -259,3 +256,10 @@ position = Vector2(-456, 135)
 target_scene = ExtResource("9_ojbyw")
 spawn_interval_sec = 1.2
 instance_life_time_sec = 3.0
+
+[node name="Node2D Spawner" parent="." instance=ExtResource("8_c8mr4")]
+position = Vector2(480, 32)
+target_scene = ExtResource("10_w3nls")
+spawn_interval_sec = 4.0
+spawn_amount = 5
+enable_life_time = false

@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://bamq47f6ekvtv"]
+
+[ext_resource type="Script" uid="uid://cnoj6jxmts4ix" path="res://script/entity/creeper.gd" id="1_4gd27"]
+[ext_resource type="Script" uid="uid://cy0co16ydd3w" path="res://script/entity/enemy_entity.gd" id="1_bkgrr"]
+[ext_resource type="Script" uid="uid://bd1oxv0hkmcqm" path="res://script/entity/entity_data.gd" id="2_ugl7j"]
+[ext_resource type="Texture2D" uid="uid://d1eyo3ppyofbf" path="res://assets/sprite/entity/enemy/creeper.png" id="3_ugl7j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ugl7j"]
+size = Vector2(96, 96)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4gd27"]
+size = Vector2(96, 96)
+
+[node name="Creeper" type="RigidBody2D"]
+modulate = Color(0.494118, 1, 1, 1)
+collision_layer = 4
+mass = 0.1
+can_sleep = false
+lock_rotation = true
+script = ExtResource("1_4gd27")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ugl7j")
+
+[node name="EnemyEntity" type="Node" parent="."]
+script = ExtResource("1_bkgrr")
+
+[node name="EntityData" type="Node" parent="."]
+script = ExtResource("2_ugl7j")
+max_health = 20
+health = 20
+speed = 40
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -9.53674e-07)
+scale = Vector2(0.48, 0.48)
+texture = ExtResource("3_ugl7j")
+
+[node name="Entity Area" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Entity Area"]
+shape = SubResource("RectangleShape2D_4gd27")
+
+[connection signal="on_damaged" from="EntityData" to="." method="on_damaged"]
+[connection signal="on_death" from="EntityData" to="." method="on_death"]
+[connection signal="area_entered" from="Entity Area" to="EnemyEntity" method="on_area_entered"]

@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://disiro1pn17a"]
+[gd_scene load_steps=7 format=3 uid="uid://disiro1pn17a"]
 
-[ext_resource type="Texture2D" uid="uid://oe1qhihwu6kt" path="res://assets/sprite/entity/Fish.png" id="1_arv1m"]
+[ext_resource type="Texture2D" uid="uid://oe1qhihwu6kt" path="res://assets/sprite/entity/enemy/Fish.png" id="1_arv1m"]
 [ext_resource type="Script" uid="uid://bpwgat4hfple5" path="res://script/entity/fish.gd" id="1_bqoj2"]
-[ext_resource type="PackedScene" uid="uid://mtvxkjh2dgyq" path="res://assets/sprite/entity/entity_data.tscn" id="2_1yog8"]
+[ext_resource type="Script" uid="uid://cy0co16ydd3w" path="res://script/entity/enemy_entity.gd" id="2_xnddo"]
+[ext_resource type="Script" uid="uid://bd1oxv0hkmcqm" path="res://script/entity/entity_data.gd" id="3_xnddo"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6t0ec"]
 radius = 64.0
@@ -19,7 +20,11 @@ can_sleep = false
 lock_rotation = true
 script = ExtResource("1_bqoj2")
 
-[node name="EntityData" parent="." instance=ExtResource("2_1yog8")]
+[node name="EnemyEntity" type="Node" parent="."]
+script = ExtResource("2_xnddo")
+
+[node name="EntityData" type="Node" parent="."]
+script = ExtResource("3_xnddo")
 max_health = 80
 health = 80
 speed = 40
@@ -45,4 +50,4 @@ shape = SubResource("CapsuleShape2D_shl4d")
 
 [connection signal="on_damaged" from="EntityData" to="." method="on_damaged"]
 [connection signal="on_death" from="EntityData" to="." method="on_death"]
-[connection signal="area_entered" from="Entity Area" to="." method="on_area_entered"]
+[connection signal="area_entered" from="Entity Area" to="EnemyEntity" method="on_area_entered"]

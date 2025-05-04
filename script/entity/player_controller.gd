@@ -1,8 +1,5 @@
 extends RigidBody2D
-class_name Player
-
-@export_category("Player Data")
-@export var knock_back_velocity = 300
+class_name PlayerController
 
 @onready var entity_data: EntityData = $EntityData
 @onready var ui: UIController = %UI
@@ -11,15 +8,17 @@ func _ready():
 	ui.update_player_health_display(entity_data.health);
 
 func on_area_entered(area: Area2D):
-	if area.get_parent() is Fish:
-		# Apply knock back force to fish
-		var fish = area.get_parent() as Fish;
+	var area_parent = area.get_parent();
+	if area_parent is Enemy:
+		# Apply knock back force to enemy
+		var enemy = area_parent as Enemy;
 		# Knock Back
-		fish.linear_velocity.x = max(0, fish.linear_velocity.x);
-		fish.linear_velocity.x += knock_back_velocity;
-		# Take damage to fish
-		var fish_entity = fish.entity_data;
-		fish_entity.take_damage(entity_data.attack, entity_data);
+		enemy.linear_velocity.x = max(0, enemy.linear_velocity.x);
+		enemy.linear_velocity.y = max(0, enemy.linear_velocity.y);
+		enemy.linear_velocity += entity_data.knockback_velocity;
+		# Take damage to enemy
+		var enemy_entity = enemy.entity_data;
+		enemy_entity.take_damage(entity_data.attack, entity_data);
 
 
 @warning_ignore("unused_parameter")

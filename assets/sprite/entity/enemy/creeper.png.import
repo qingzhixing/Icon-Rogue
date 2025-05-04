@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://oe1qhihwu6kt"
-path="res://.godot/imported/Fish.png-82279a983fa2e8d53723d225ff9df770.ctex"
+uid="uid://d1eyo3ppyofbf"
+path="res://.godot/imported/creeper.png-cc4c0b609fa4e9a21a4ed1eb9d39ea07.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprite/entity/Fish.png"
-dest_files=["res://.godot/imported/Fish.png-82279a983fa2e8d53723d225ff9df770.ctex"]
+source_file="res://assets/sprite/entity/enemy/creeper.png"
+dest_files=["res://.godot/imported/creeper.png-cc4c0b609fa4e9a21a4ed1eb9d39ea07.ctex"]
 
 [params]
 
