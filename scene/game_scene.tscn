@@ -255,11 +255,16 @@ texture = ExtResource("5_ud8a0")
 position = Vector2(-456, 135)
 target_scene = ExtResource("9_ojbyw")
 spawn_interval_sec = 1.2
+infinity_spawn = true
+spawn_amount = 0
+enable_life_time = false
 instance_life_time_sec = 3.0
 
-[node name="Node2D Spawner" parent="." instance=ExtResource("8_c8mr4")]
-position = Vector2(480, 32)
+[node name="Creeper Spawner" parent="." instance=ExtResource("8_c8mr4")]
+position = Vector2(488, 136)
 target_scene = ExtResource("10_w3nls")
-spawn_interval_sec = 4.0
-spawn_amount = 5
+spawn_interval_sec = 1.2
+infinity_spawn = true
+spawn_amount = 0
 enable_life_time = false
+instance_life_time_sec = 3.0

@@ -5,11 +5,11 @@
 [ext_resource type="Script" uid="uid://bd1oxv0hkmcqm" path="res://script/entity/entity_data.gd" id="2_ugl7j"]
 [ext_resource type="Texture2D" uid="uid://d1eyo3ppyofbf" path="res://assets/sprite/entity/enemy/creeper.png" id="3_ugl7j"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ugl7j"]
-size = Vector2(96, 96)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2qe4e"]
+size = Vector2(80, 80)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4gd27"]
-size = Vector2(96, 96)
+size = Vector2(80, 80)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4gd27"]
 radius = 80.0
@@ -21,9 +21,6 @@ can_sleep = false
 lock_rotation = true
 script = ExtResource("1_4gd27")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_ugl7j")
-
 [node name="EnemyEntity" type="Node" parent="."]
 script = ExtResource("1_bkgrr")
 
@@ -31,12 +28,15 @@ script = ExtResource("1_bkgrr")
 script = ExtResource("2_ugl7j")
 max_health = 20
 health = 20
-speed = 40
+speed = 20
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -9.53674e-07)
 scale = Vector2(0.48, 0.48)
 texture = ExtResource("3_ugl7j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_2qe4e")
 
 [node name="Entity Area" type="Area2D" parent="."]
 collision_layer = 4
@@ -46,7 +46,7 @@ collision_mask = 10
 shape = SubResource("RectangleShape2D_4gd27")
 
 [node name="Explode Area" type="Area2D" parent="."]
-collision_layer = 4
+collision_layer = 16
 collision_mask = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Explode Area"]
@@ -55,4 +55,4 @@ shape = SubResource("CircleShape2D_4gd27")
 [connection signal="on_damaged" from="EntityData" to="." method="on_damaged"]
 [connection signal="on_death" from="EntityData" to="." method="on_death"]
 [connection signal="area_entered" from="Entity Area" to="EnemyEntity" method="on_area_entered"]
-[connection signal="area_entered" from="Explode Area" to="EnemyEntity" method="on_area_entered"]
+[connection signal="area_entered" from="Explode Area" to="." method="on_explode_entered"]

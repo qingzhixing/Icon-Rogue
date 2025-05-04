@@ -16,6 +16,7 @@ height = 224.0
 [node name="Fish" type="RigidBody2D"]
 modulate = Color(0.494118, 1, 1, 1)
 collision_layer = 4
+mass = 0.1
 can_sleep = false
 lock_rotation = true
 script = ExtResource("1_bqoj2")
@@ -27,7 +28,7 @@ script = ExtResource("2_xnddo")
 script = ExtResource("3_xnddo")
 max_health = 80
 health = 80
-speed = 40
+speed = 50
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-16, 0)
