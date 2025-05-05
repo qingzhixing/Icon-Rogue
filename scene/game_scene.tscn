@@ -264,11 +264,17 @@ instance_life_time_sec = 3.0
 [node name="Creeper Spawner" parent="." instance=ExtResource("8_c8mr4")]
 position = Vector2(496, 128)
 target_scene = ExtResource("10_w3nls")
-spawn_interval_sec = 5.0
+spawn_interval_sec = 10.0
 infinity_spawn = true
 spawn_amount = 0
 enable_life_time = false
 instance_life_time_sec = 3.0
 
-[node name="Fish" parent="." instance=ExtResource("10_x8u7y")]
-position = Vector2(776, 96)
+[node name="Fish Spawner" parent="." instance=ExtResource("8_c8mr4")]
+position = Vector2(496, 128)
+target_scene = ExtResource("10_x8u7y")
+spawn_interval_sec = 15.0
+infinity_spawn = true
+spawn_amount = 0
+enable_life_time = false
+instance_life_time_sec = 3.0

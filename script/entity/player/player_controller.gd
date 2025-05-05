@@ -8,13 +8,13 @@ func _ready():
 	ui.update_player_health_display(entity_data);
 
 func on_area_entered(area: Area2D):
-	if !area.get_collision_layer_value(3):	# 仅伤害Enemy
+	if !area.get_collision_layer_value(3): # 仅伤害Enemy
 		return
 	var area_parent = area.get_parent();
 	if area_parent is Enemy:
 		# Apply knock back force to enemy
 		var enemy = area_parent as Enemy;
-		print("Enemy Entered: ",enemy.name)
+		# print("Enemy Entered: ",enemy.name)
 		# Knock Back
 		enemy.linear_velocity.x = max(0, enemy.linear_velocity.x);
 		enemy.linear_velocity.y = max(0, enemy.linear_velocity.y);
