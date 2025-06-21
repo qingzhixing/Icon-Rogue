@@ -1,0 +1,95 @@
+[gd_scene load_steps=5 format=3 uid="uid://biqbsaje8bqw2"]
+
+[ext_resource type="Theme" uid="uid://bvbf0bvyvo0vp" path="res://resources/theme/normal_theme.tres" id="1_k46if"]
+[ext_resource type="Texture2D" uid="uid://bh4jmqayun8c0" path="res://assets/ui/heart.png" id="2_73xd1"]
+[ext_resource type="Texture2D" uid="uid://bncj28fao88sj" path="res://assets/ui/github-fill.png" id="3_2wmw4"]
+
+[sub_resource type="GDScript" id="GDScript_73xd1"]
+script/source = "extends Button
+
+func _on_pressed() -> void:
+	get_tree().change_scene_to_file(\"res://scene/start_page.tscn\");
+"
+
+[node name="AboutPage" type="CanvasLayer"]
+
+[node name="background" type="ColorRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.151996, 0.151996, 0.151996, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 22
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 30
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme = ExtResource("1_k46if")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 17
+theme_override_font_sizes/font_size = 72
+text = "像素肉鸽(Icon Rogue)"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CenterContainer2" type="CenterContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/CenterContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer/VBoxContainer/CenterContainer2/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_73xd1")
+expand_mode = 2
+
+[node name="Button" type="LinkButton" parent="CenterContainer/VBoxContainer/CenterContainer2/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_k46if")
+theme_override_font_sizes/font_size = 36
+text = "@Auther qingzhixing"
+underline = 1
+uri = "https://github.com/qingzhixing/"
+
+[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer/VBoxContainer/CenterContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_2wmw4")
+expand_mode = 2
+
+[node name="Button" type="LinkButton" parent="CenterContainer/VBoxContainer/CenterContainer/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_k46if")
+theme_override_font_sizes/font_size = 36
+text = "@github"
+underline = 1
+uri = "https://github.com/qingzhixing/Icon-Rogue"
+
+[node name="Button_Back" type="Button" parent="."]
+offset_left = 968.0
+offset_top = 552.0
+offset_right = 1109.0
+offset_bottom = 619.0
+theme = ExtResource("1_k46if")
+theme_override_font_sizes/font_size = 32
+text = "Back"
+script = SubResource("GDScript_73xd1")
+
+[connection signal="pressed" from="Button_Back" to="Button_Back" method="_on_pressed"]

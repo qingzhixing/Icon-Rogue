@@ -22,6 +22,7 @@ func _ready() -> void:
 	add_child(bgm_player);
 	current_bgm_index = randi() % bgm_paths.size();
 	play_bgm(bgm_paths[current_bgm_index]);
+	bgm_player.finished.connect(on_bgm_finished);
 
 func on_bgm_finished():
 	current_bgm_index += 1;

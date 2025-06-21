@@ -12,8 +12,7 @@ func _process(_delta):
 	if _in_dead_process && Input.is_action_just_pressed("respawn_key"):
 		_in_dead_process = false;
 		GameStopper.set_game_stopped(false);
-		hover_ui.set_over_overlay_visible(false);
-		player.respawn();
+		get_tree().change_scene_to_file("res://scene/start_page.tscn");
 
 func on_player_dead():
 	if _in_dead_process:
