@@ -8,8 +8,7 @@ func on_death() -> void:
 	GlobalSoundPlayer.play_sfx("enemy/creeper/death.ogg");
 	queue_free()
 
-@warning_ignore("unused_parameter")
-func on_damaged(damage: int, source: EntityData) -> void:
+func on_damaged(_damage: int, _source: EntityData) -> void:
 	GlobalSoundPlayer.play_sfx("enemy/creeper/say" + str(randi() % 4 + 1) + ".ogg");
 
 

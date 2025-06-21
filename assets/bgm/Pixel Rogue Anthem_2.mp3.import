@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bhdc1xo8b8nfe"
+path="res://.godot/imported/Pixel Rogue Anthem_2.mp3-9dd41f830573f4b9348f517923acb7f6.mp3str"
+
+[deps]
+
+source_file="res://assets/bgm/Pixel Rogue Anthem_2.mp3"
+dest_files=["res://.godot/imported/Pixel Rogue Anthem_2.mp3-9dd41f830573f4b9348f517923acb7f6.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

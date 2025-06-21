@@ -1,7 +1,6 @@
 class_name Fish extends Enemy
 
-@warning_ignore("unused_parameter")
-func on_damaged(damage: int, source: EntityData) -> void:
+func on_damaged(_damage: int, _source: EntityData) -> void:
 	GlobalSoundPlayer.play_sfx("enemy/enemy_injured.ogg");
 
 

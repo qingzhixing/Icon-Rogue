@@ -2,10 +2,11 @@ extends RigidBody2D
 class_name PlayerController
 
 @onready var entity_data: EntityData = $EntityData
-@onready var ui: UIController = %UI
+@onready var hover_ui: UIController = %HoverUI
+@onready var game_controller: Node = %GameController
 
 func _ready():
-	ui.update_player_health_display(entity_data);
+	hover_ui.update_player_health_display(entity_data);
 
 func on_area_entered(area: Area2D):
 	if !area.get_collision_layer_value(3): # 仅伤害Enemy
@@ -24,18 +25,14 @@ func on_area_entered(area: Area2D):
 		enemy_entity.take_damage(entity_data.attack, entity_data);
 
 
-@warning_ignore("unused_parameter")
-func on_damaged(damage: int, source: EntityData) -> void:
+func on_damaged(_damage: int, _source: EntityData) -> void:
 	GlobalSoundPlayer.play_sfx("injured/hurt" + str(randi() % 2 + 1) + ".ogg", 0.5);
-	ui.update_player_health_display(entity_data);
+	hover_ui.update_player_health_display(entity_data);
 
+func respawn():
+	entity_data.health = entity_data.max_health;
+	hover_ui.update_player_health_display(entity_data);
 
 func on_death() -> void:
-	ui.update_player_health_display(entity_data);
-	print("Player Died!");
-	# Sound Effect
-	GlobalSoundPlayer.play_sfx("game_state/Lose.ogg");
-	# respawn
-	entity_data.health = entity_data.max_health;
-	ui.update_player_health_display(entity_data);
-	ui.on_player_died();
+	game_controller.on_player_dead();
+	hover_ui.update_player_health_display(entity_data);

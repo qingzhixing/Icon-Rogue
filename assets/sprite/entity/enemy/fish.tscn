@@ -32,8 +32,10 @@ script = ExtResource("2_xnddo")
 script = ExtResource("3_xnddo")
 max_health = 80
 health = 80
-max_velocity_x_abs = 150
-constant_force_x_abs = 20
+attack = 5
+defense = 0
+max_velocity_x_abs = 300
+constant_force_x_abs = 50
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-16, 0)

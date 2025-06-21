@@ -13,8 +13,7 @@ signal on_finished_spawning();
 var _last_spawn_tick: float = -100;
 var _spawn_count: int = 0;
 
-@warning_ignore("unused_parameter")
-func _process(delta):
+func _process(_delta):
 	if !infinity_spawn && _spawn_count >= spawn_amount:
 		return ;
 	if target_scene == null:

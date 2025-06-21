@@ -32,7 +32,7 @@ script = ExtResource("1_bkgrr")
 script = ExtResource("2_ugl7j")
 max_health = 20
 health = 20
-max_velocity_x_abs = 100
+max_velocity_x_abs = 200
 constant_force_x_abs = 30
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

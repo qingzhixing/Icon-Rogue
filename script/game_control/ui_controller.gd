@@ -12,5 +12,5 @@ func update_player_health_display(entity_data: EntityData) -> void:
 	health_label.text = "Health: %d / %d" % [entity_data.health, entity_data.max_health]
 	pass # Replace with function body.
 
-func on_player_died():
-	game_over_overlay.visible = true;
+func set_over_overlay_visible(visible: bool):
+	game_over_overlay.visible = visible;
