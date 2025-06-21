@@ -13,5 +13,4 @@ func _on_btn_about_pressed() -> void:
 
 
 func _on_btn_exit_pressed() -> void:
-	if get_tree().has_active_quit_request():
-		get_tree().quit();
+	get_tree().quit();
