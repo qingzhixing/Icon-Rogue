@@ -11,8 +11,11 @@ func _ready() -> void:
 func _process(_delta):
 	if _in_dead_process && Input.is_action_just_pressed("respawn_key"):
 		_in_dead_process = false;
-		GameStopper.set_game_stopped(false);
-		get_tree().change_scene_to_file("res://scene/start_page.tscn");
+		do_restart();
+
+func do_restart():
+	GameStopper.set_game_stopped(false);
+	get_tree().change_scene_to_file("res://scene/start_page.tscn");
 
 func on_player_dead():
 	if _in_dead_process:
@@ -21,5 +24,9 @@ func on_player_dead():
 	GameStopper.set_game_stopped(true);
 	print("Player Died!");
 	# Sound Effect
-	GlobalSoundPlayer.play_sfx("game_state/Lose.ogg");
+	SoundPlayer.play_sfx("game_state/Lose.ogg");
 	hover_ui.set_over_overlay_visible(true);
+
+
+func _on_restart_button_pressed() -> void:
+	do_restart();

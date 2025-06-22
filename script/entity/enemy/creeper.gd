@@ -5,11 +5,11 @@ class_name Creeper extends Enemy
 var explode_scene: PackedScene = preload("res://assets/sprite/entity/enemy/explode.tscn");
 
 func on_death() -> void:
-	GlobalSoundPlayer.play_sfx("enemy/creeper/death.ogg");
+	SoundPlayer.play_sfx("enemy/creeper/death.ogg");
 	queue_free()
 
 func on_damaged(_damage: int, _source: EntityData) -> void:
-	GlobalSoundPlayer.play_sfx("enemy/creeper/say" + str(randi() % 4 + 1) + ".ogg");
+	SoundPlayer.play_sfx("enemy/creeper/say" + str(randi() % 4 + 1) + ".ogg");
 
 
 func on_explode_entered(area: Area2D) -> void:
@@ -26,5 +26,5 @@ func delay_explode():
 	get_tree().current_scene.add_child(explode)
 	explode.do_explode(entity_data)
 	explode.position = position
-	GlobalSoundPlayer.play_sfx("enemy/creeper/death.ogg");
+	SoundPlayer.play_sfx("enemy/creeper/death.ogg");
 	queue_free()

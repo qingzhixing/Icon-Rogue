@@ -17,13 +17,17 @@ config/icon="res://assets/app_icon/icon.svg"
 
 [autoload]
 
-GlobalSoundPlayer="*res://script/game_control/global_sound_player.gd"
+SoundPlayer="*res://script/game_control/global_sound_player.gd"
 GameStopper="*res://script/game_control/game_stopper.gd"
+GlobalSettings="*res://script/game_control/global_settings.gd"
 
 [display]
 
-window/size/mode=2
 window/stretch/mode="canvas_items"
+
+[gui]
+
+theme/custom_font="uid://djrchkw4o63jr"
 
 [input]
 

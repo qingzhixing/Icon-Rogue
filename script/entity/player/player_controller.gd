@@ -26,7 +26,7 @@ func on_area_entered(area: Area2D):
 
 
 func on_damaged(_damage: int, _source: EntityData) -> void:
-	GlobalSoundPlayer.play_sfx("injured/hurt" + str(randi() % 2 + 1) + ".ogg", 0.5);
+	SoundPlayer.play_sfx("injured/hurt" + str(randi() % 2 + 1) + ".ogg", 0.5);
 	hover_ui.update_player_health_display(entity_data);
 
 func respawn():

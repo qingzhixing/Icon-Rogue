@@ -77,7 +77,6 @@ text = "Health: Infinity"
 vertical_alignment = 1
 
 [node name="Game Over Overlay" type="Control" parent="HoverUI"]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1152.0
@@ -107,7 +106,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Label2" type="Label" parent="HoverUI/Game Over Overlay"]
+[node name="Restart Button" type="Button" parent="HoverUI/Game Over Overlay"]
 layout_mode = 0
 offset_left = 296.0
 offset_top = 408.0
@@ -116,8 +115,7 @@ offset_bottom = 520.0
 theme = ExtResource("2_ouui0")
 theme_override_font_sizes/font_size = 61
 text = "[R] To Restart"
-horizontal_alignment = 1
-vertical_alignment = 1
+flat = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position_smoothing_enabled = true
@@ -305,3 +303,5 @@ infinity_spawn = true
 spawn_amount = 0
 enable_life_time = false
 instance_life_time_sec = 3.0
+
+[connection signal="pressed" from="HoverUI/Game Over Overlay/Restart Button" to="GameController" method="_on_restart_button_pressed"]

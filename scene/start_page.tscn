@@ -9,7 +9,7 @@ script = ExtResource("1_vmxbn")
 [node name="background" type="ColorRect" parent="."]
 offset_right = 1152.0
 offset_bottom = 648.0
-color = Color(0.151996, 0.151996, 0.151996, 1)
+color = Color(0.18017, 0.12859, 0.207552, 1)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 offset_right = 1152.0
@@ -18,6 +18,7 @@ alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
 theme_override_constants/separation = 22
 alignment = 1
 
@@ -32,40 +33,39 @@ text = "像素肉鸽
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/VBoxContainer"]
+[node name="Btn_StartGame" type="Button" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/margin_left = 80
-theme_override_constants/margin_right = 80
-
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/VBoxContainer/MarginContainer"]
-layout_mode = 2
-theme_override_constants/separation = 22
-
-[node name="Btn_StartGame" type="Button" parent="HBoxContainer/VBoxContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
+size_flags_horizontal = 4
 theme = ExtResource("3_xbvye")
 theme_override_font_sizes/font_size = 34
 text = "开始游戏"
+flat = true
 
-[node name="Btn_Settings" type="Button" parent="HBoxContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+[node name="Btn_Settings" type="Button" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
 theme = ExtResource("3_xbvye")
 theme_override_font_sizes/font_size = 34
 text = "游戏设置"
+flat = true
 
-[node name="Btn_About" type="Button" parent="HBoxContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+[node name="Btn_About" type="Button" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
 theme = ExtResource("3_xbvye")
 theme_override_font_sizes/font_size = 34
 text = "关于"
+flat = true
 
-[node name="Btn_Exit" type="Button" parent="HBoxContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+[node name="Btn_Exit" type="Button" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
 theme = ExtResource("3_xbvye")
 theme_override_font_sizes/font_size = 34
 text = "退出游戏"
+flat = true
 
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/MarginContainer/VBoxContainer/Btn_StartGame" to="." method="_on_btn_start_game_pressed"]
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/MarginContainer/VBoxContainer/Btn_Settings" to="." method="_on_btn_settings_pressed"]
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/MarginContainer/VBoxContainer/Btn_About" to="." method="_on_btn_about_pressed"]
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/MarginContainer/VBoxContainer/Btn_Exit" to="." method="_on_btn_exit_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/Btn_StartGame" to="." method="_on_btn_start_game_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/Btn_Settings" to="." method="_on_btn_settings_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/Btn_About" to="." method="_on_btn_about_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/Btn_Exit" to="." method="_on_btn_exit_pressed"]

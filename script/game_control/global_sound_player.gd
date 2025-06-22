@@ -29,7 +29,17 @@ func on_bgm_finished():
 	current_bgm_index %= bgm_paths.size();
 	play_bgm(bgm_paths[current_bgm_index], 100.0)
 
+# Plays a bgm
+# bgm_path: bgm file path without prefix "res://assets/bgm/"
 func play_bgm(bgm_path: String, volume: float = 0.0):
+	# stop current bgm
+	bgm_player.stop();
+	
+	# release current bgm
+	if bgm_stream:
+		bgm_stream.free();
+		
+	print("Playing BGM: %s" % bgm_path);
 	bgm_stream = load(BGM_SOUND_PATH_PREFIX + bgm_path)
 	if bgm_stream:
 		bgm_player.stream = bgm_stream

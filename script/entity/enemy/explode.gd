@@ -20,7 +20,7 @@ func do_explode(from: EntityData = entity_data):
 	explode_from = from;
 	exploding = true;
 	animation_player.play("Explode");
-	GlobalSoundPlayer.play_sfx("explode/Explosion" + str(randi() % 5 + 1) + ".ogg");
+	SoundPlayer.play_sfx("explode/Explosion" + str(randi() % 5 + 1) + ".ogg");
 	pass
 
 

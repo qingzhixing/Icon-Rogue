@@ -16,7 +16,7 @@ func _on_pressed() -> void:
 [node name="background" type="ColorRect" parent="."]
 offset_right = 1152.0
 offset_bottom = 648.0
-color = Color(0.151996, 0.151996, 0.151996, 1)
+color = Color(0.0868115, 0.156769, 0.235254, 1)
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 offset_right = 1152.0
