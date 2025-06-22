@@ -107,14 +107,15 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Restart Button" type="Button" parent="HoverUI/Game Over Overlay"]
+process_mode = 3
 layout_mode = 0
-offset_left = 296.0
+offset_left = 376.0
 offset_top = 408.0
-offset_right = 880.0
+offset_right = 768.0
 offset_bottom = 520.0
 theme = ExtResource("2_ouui0")
 theme_override_font_sizes/font_size = 61
-text = "[R] To Restart"
+text = "[R] Restart"
 flat = true
 
 [node name="Camera2D" type="Camera2D" parent="."]

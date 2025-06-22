@@ -27,6 +27,10 @@ func sync_settings_to_ui_state() -> void:
 	slider_sfx.value = GlobalSettings.get_bus_volume_percent(GlobalSettings.AudioBus.SFX);
 	slider_bgm.value = GlobalSettings.get_bus_volume_percent(GlobalSettings.AudioBus.BGM);
 
+func _process(_delta):
+	# 一直更新是因为有热键能切换全屏
+	check_button_full_screen.button_pressed = GlobalSettings.is_fullscreen();
+
 func _on_button_clear_settings_pressed() -> void:
 	GlobalSettings.clear_all_settings();
 	sync_settings_to_ui_state();

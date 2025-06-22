@@ -47,7 +47,7 @@ theme_override_constants/separation = 22
 layout_mode = 2
 theme = ExtResource("1_00343")
 theme_override_font_sizes/font_size = 24
-text = "全屏"
+text = "全屏[F12]"
 
 [node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
