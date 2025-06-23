@@ -74,8 +74,18 @@ theme = ExtResource("3_xbvye")
 theme_override_font_sizes/font_size = 26
 text = "下一首"
 
+[node name="Button_pause_bgm" type="Button" parent="."]
+offset_left = 976.0
+offset_top = 160.0
+offset_right = 1062.0
+offset_bottom = 203.0
+theme = ExtResource("3_xbvye")
+theme_override_font_sizes/font_size = 26
+text = "Pause"
+
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/Btn_StartGame" to="." method="_on_btn_start_game_pressed"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/Btn_Settings" to="." method="_on_btn_settings_pressed"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/Btn_About" to="." method="_on_btn_about_pressed"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/Btn_Exit" to="." method="_on_btn_exit_pressed"]
 [connection signal="pressed" from="Button_nxt_bgm" to="." method="_on_button_nxt_bgm_pressed"]
+[connection signal="pressed" from="Button_pause_bgm" to="." method="_on_button_pause_bgm_pressed"]

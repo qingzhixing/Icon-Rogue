@@ -18,3 +18,7 @@ func _on_btn_exit_pressed() -> void:
 
 func _on_button_nxt_bgm_pressed() -> void:
 	SoundPlayer.on_bgm_finished();
+
+
+func _on_button_pause_bgm_pressed() -> void:
+	SoundPlayer.toggle_bgm_pause();
