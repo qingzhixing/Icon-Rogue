@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dcifdlgr6dggr" path="res://assets/sprite/entity/player.png" id="1_3up65"]
 [ext_resource type="Script" uid="uid://b4bvbt88nibg7" path="res://script/entity/player/player_controller.gd" id="1_5nvlc"]
-[ext_resource type="Script" uid="uid://bd1oxv0hkmcqm" path="res://script/entity/enemy/entity_data.gd" id="2_hcyir"]
+[ext_resource type="Script" uid="uid://bd1oxv0hkmcqm" path="res://script/entity/entity_data.gd" id="2_hcyir"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i8ryp"]
 radius = 24.0
@@ -39,6 +39,10 @@ collision_mask = 20
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Entity Area"]
 position = Vector2(0, -64)
 shape = SubResource("CapsuleShape2D_u6xtk")
+
+[node name="Invincible Timer" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
 
 [connection signal="on_damaged" from="EntityData" to="." method="on_damaged"]
 [connection signal="on_death" from="EntityData" to="." method="on_death"]

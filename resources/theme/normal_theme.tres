@@ -101,6 +101,7 @@ CheckBox/colors/font_hover_pressed_color = Color(0.392157, 0.560784, 0.796078, 1
 CheckBox/constants/h_separation = 7
 CheckButton/colors/font_hover_pressed_color = Color(0.392157, 0.560784, 0.796078, 1)
 CheckButton/fonts/font = ExtResource("1_bw6ll")
+Label/constants/outline_size = 7
 Label/fonts/font = ExtResource("1_bw6ll")
 LineEdit/fonts/font = ExtResource("1_bw6ll")
 LinkButton/colors/font_outline_color = Color(0, 0, 0, 1)

@@ -9,6 +9,7 @@ class_name EntityData
 @export var max_velocity_x_abs: int = 40
 @export var constant_force_x_abs = 10;
 @export var knockback_velocity: Vector2 = Vector2(30, 0)
+@export var invincible: bool = false;
 
 func _ready() -> void:
 	health = max_health;
@@ -38,6 +39,8 @@ func get_max_velocity_x() -> float:
 	return max_velocity_x_abs * times;
 
 func take_damage(damage: int, source: EntityData) -> void:
+	if invincible:
+		return ;
 	if health <= 0:
 		return ;
 	health -= damage

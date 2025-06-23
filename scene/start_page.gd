@@ -14,3 +14,7 @@ func _on_btn_about_pressed() -> void:
 
 func _on_btn_exit_pressed() -> void:
 	get_tree().quit();
+
+
+func _on_button_nxt_bgm_pressed() -> void:
+	SoundPlayer.on_bgm_finished();

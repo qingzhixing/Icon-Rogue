@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cpmic0eif1dup"]
+[gd_scene load_steps=17 format=3 uid="uid://cpmic0eif1dup"]
 
 [ext_resource type="Texture2D" uid="uid://bh4jmqayun8c0" path="res://assets/ui/heart.png" id="1_djtiv"]
 [ext_resource type="PackedScene" uid="uid://c7s61c8fyguyi" path="res://assets/map_element/ground/brick.tscn" id="1_qsiw5"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://cjgblnbf58xy2" path="res://script/game_control/game_controller.gd" id="1_x8u7y"]
 [ext_resource type="PackedScene" uid="uid://dbr1d3ag3is1e" path="res://assets/sprite/entity/player.tscn" id="2_1tamk"]
 [ext_resource type="Theme" uid="uid://bvbf0bvyvo0vp" path="res://resources/theme/normal_theme.tres" id="2_ouui0"]
+[ext_resource type="Script" uid="uid://ductmq20f5s20" path="res://scene/settings_page.gd" id="5_lonp8"]
 [ext_resource type="Texture2D" uid="uid://bevkwdjs11wym" path="res://assets/map_element/decorations/cloud.png" id="5_ud8a0"]
 [ext_resource type="PackedScene" uid="uid://b0vnif1uqsn36" path="res://scene/node2d_spawner.tscn" id="8_c8mr4"]
 [ext_resource type="PackedScene" uid="uid://balgi0d8jpxym" path="res://assets/sprite/weapon/Sword.tscn" id="9_ojbyw"]
@@ -13,6 +14,8 @@
 [ext_resource type="PackedScene" uid="uid://disiro1pn17a" path="res://assets/sprite/entity/enemy/fish.tscn" id="10_x8u7y"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5w0dq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6ua28"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_jipil"]
 friction = 0.0
@@ -23,6 +26,7 @@ friction = 0.0
 
 [node name="GameController" type="Node" parent="."]
 unique_name_in_owner = true
+process_mode = 3
 script = ExtResource("1_x8u7y")
 
 [node name="UI" type="Control" parent="."]
@@ -41,9 +45,11 @@ color = Color(0.151996, 0.151996, 0.151996, 1)
 
 [node name="HoverUI" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
+process_mode = 3
 script = ExtResource("1_w3nls")
 
-[node name="MarginContainer" type="MarginContainer" parent="HoverUI"]
+[node name="Game State Overlay" type="MarginContainer" parent="HoverUI"]
+visible = false
 offset_right = 1152.0
 offset_bottom = 648.0
 theme_override_constants/margin_left = 30
@@ -51,24 +57,24 @@ theme_override_constants/margin_top = 30
 theme_override_constants/margin_right = 30
 theme_override_constants/margin_bottom = 30
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HoverUI/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="HoverUI/Game State Overlay"]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HoverUI/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="HoverUI/Game State Overlay/VBoxContainer"]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="HoverUI/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="HoverUI/Game State Overlay/VBoxContainer/HBoxContainer"]
 modulate = Color(1, 0.184314, 0, 1)
 layout_mode = 2
 texture = ExtResource("1_djtiv")
 expand_mode = 2
 
-[node name="VSeparator" type="VSeparator" parent="HoverUI/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="VSeparator" type="VSeparator" parent="HoverUI/Game State Overlay/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 9
 theme_override_styles/separator = SubResource("StyleBoxEmpty_5w0dq")
 
-[node name="Player Health" type="Label" parent="HoverUI/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="Player Health" type="Label" parent="HoverUI/Game State Overlay/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 theme = ExtResource("2_ouui0")
 theme_override_colors/font_color = Color(1, 0.333333, 0.164706, 1)
@@ -77,6 +83,7 @@ text = "Health: Infinity"
 vertical_alignment = 1
 
 [node name="Game Over Overlay" type="Control" parent="HoverUI"]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1152.0
@@ -117,6 +124,191 @@ theme = ExtResource("2_ouui0")
 theme_override_font_sizes/font_size = 61
 text = "[R] Restart"
 flat = true
+
+[node name="Game Menu Overlay" type="Control" parent="HoverUI"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("5_lonp8")
+
+[node name="background" type="ColorRect" parent="HoverUI/Game Menu Overlay"]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.482353, 0.32549, 0.466667, 0.662745)
+
+[node name="MarginContainer" type="MarginContainer" parent="HoverUI/Game Menu Overlay"]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 536.0
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HoverUI/Game Menu Overlay/MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HoverUI/Game Menu Overlay/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_right = 25
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HoverUI/Game Menu Overlay/MarginContainer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 22
+
+[node name="CheckButton_FullScreen" type="CheckButton" parent="HoverUI/Game Menu Overlay/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_ouui0")
+theme_override_font_sizes/font_size = 24
+text = "全屏[F12]"
+
+[node name="MarginContainer2" type="MarginContainer" parent="HoverUI/Game Menu Overlay/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_right = 25
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HoverUI/Game Menu Overlay/MarginContainer/HBoxContainer/MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 22
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HoverUI/Game Menu Overlay/MarginContainer/HBoxContainer/MarginContainer2/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="CheckBox_Master" type="CheckBox" parent="HoverUI/Game Menu Overlay/MarginContainer/HBoxContainer/MarginContainer2/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("2_ouui0")
+theme_override_constants/h_separation = 7
+theme_override_font_sizes/font_size = 22
+button_pressed = true
+text = "总体音量"
+flat = true
+
+[node name="VSeparator" type="VSeparator" parent="HoverUI/Game Menu Overlay/MarginContainer/HBoxContainer/MarginContainer2/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 14
+theme_override_styles/separator = SubResource("StyleBoxEmpty_6ua28")
+
+[node name="Slider_Master" type="HSlider" parent="HoverUI/Game Menu Overlay/MarginContainer/HBoxContainer/MarginContainer2/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+value = 100.0
+rounded = true
+ticks_on_borders = true
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="HoverUI/Game Menu Overlay/MarginContainer/HBoxContainer/MarginContainer2/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="CheckBox_SFX" type="CheckBox" parent="HoverUI/Game Menu Overlay/MarginContainer/HBoxContainer/MarginContainer2/VBoxContainer2/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("2_ouui0")
+theme_override_constants/h_separation = 7
+theme_override_font_sizes/font_size = 22
+button_pressed = true
+text = "效果音量"
+flat = true
+
+[node name="VSeparator" type="VSeparator" parent="HoverUI/Game Menu Overlay/MarginContainer/HBoxContainer/MarginContainer2/VBoxContainer2/HBoxContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 14
+theme_override_styles/separator = SubResource("StyleBoxEmpty_6ua28")
+
+[node name="Slider_SFX" type="HSlider" parent="HoverUI/Game Menu Overlay/MarginContainer/HBoxContainer/MarginContainer2/VBoxContainer2/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+value = 100.0
+rounded = true
+ticks_on_borders = true
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="HoverUI/Game Menu Overlay/MarginContainer/HBoxContainer/MarginContainer2/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="CheckBox_BGM" type="CheckBox" parent="HoverUI/Game Menu Overlay/MarginContainer/HBoxContainer/MarginContainer2/VBoxContainer2/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("2_ouui0")
+theme_override_constants/h_separation = 7
+theme_override_font_sizes/font_size = 22
+button_pressed = true
+text = "音乐音量"
+flat = true
+
+[node name="VSeparator" type="VSeparator" parent="HoverUI/Game Menu Overlay/MarginContainer/HBoxContainer/MarginContainer2/VBoxContainer2/HBoxContainer3"]
+layout_mode = 2
+theme_override_constants/separation = 14
+theme_override_styles/separator = SubResource("StyleBoxEmpty_6ua28")
+
+[node name="Slider_BGM" type="HSlider" parent="HoverUI/Game Menu Overlay/MarginContainer/HBoxContainer/MarginContainer2/VBoxContainer2/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+value = 100.0
+rounded = true
+ticks_on_borders = true
+
+[node name="MarginContainer3" type="MarginContainer" parent="HoverUI/Game Menu Overlay/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_right = 25
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HoverUI/Game Menu Overlay/MarginContainer/HBoxContainer/MarginContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 22
+
+[node name="Button_Secret" type="Button" parent="HoverUI/Game Menu Overlay/MarginContainer/HBoxContainer/MarginContainer3/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("2_ouui0")
+theme_override_font_sizes/font_size = 24
+toggle_mode = true
+text = "神秘按钮"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HoverUI/Game Menu Overlay"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 560.0
+offset_right = 1136.0
+offset_bottom = 632.0
+theme_override_constants/separation = 300
+alignment = 1
+
+[node name="Button_ClearSettings" type="Button" parent="HoverUI/Game Menu Overlay/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_ouui0")
+theme_override_font_sizes/font_size = 32
+text = "清除设置"
+
+[node name="Button_Exit" type="Button" parent="HoverUI/Game Menu Overlay/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_ouui0")
+theme_override_font_sizes/font_size = 32
+text = "退出"
+
+[node name="Button_Back" type="Button" parent="HoverUI/Game Menu Overlay/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_ouui0")
+theme_override_font_sizes/font_size = 32
+text = "Back"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position_smoothing_enabled = true
@@ -283,9 +475,11 @@ texture = ExtResource("5_ud8a0")
 position = Vector2(-456, 135)
 target_scene = ExtResource("9_ojbyw")
 spawn_interval_sec = 1.2
+infinity_spawn = true
 spawn_amount = 0
 enable_life_time = false
 instance_life_time_sec = 3.0
+start_spawn = true
 
 [node name="Creeper Spawner" parent="." instance=ExtResource("8_c8mr4")]
 position = Vector2(496, 128)
@@ -295,6 +489,7 @@ infinity_spawn = true
 spawn_amount = 0
 enable_life_time = false
 instance_life_time_sec = 3.0
+start_spawn = true
 
 [node name="Fish Spawner" parent="." instance=ExtResource("8_c8mr4")]
 position = Vector2(496, 128)
@@ -304,5 +499,17 @@ infinity_spawn = true
 spawn_amount = 0
 enable_life_time = false
 instance_life_time_sec = 3.0
+start_spawn = true
 
 [connection signal="pressed" from="HoverUI/Game Over Overlay/Restart Button" to="GameController" method="_on_restart_button_pressed"]
+[connection signal="toggled" from="HoverUI/Game Menu Overlay/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/CheckButton_FullScreen" to="HoverUI/Game Menu Overlay" method="_on_check_button_full_screen_toggled"]
+[connection signal="toggled" from="HoverUI/Game Menu Overlay/MarginContainer/HBoxContainer/MarginContainer2/VBoxContainer2/HBoxContainer/CheckBox_Master" to="HoverUI/Game Menu Overlay" method="_on_check_box_master_toggled"]
+[connection signal="value_changed" from="HoverUI/Game Menu Overlay/MarginContainer/HBoxContainer/MarginContainer2/VBoxContainer2/HBoxContainer/Slider_Master" to="HoverUI/Game Menu Overlay" method="_on_slider_master_value_changed"]
+[connection signal="toggled" from="HoverUI/Game Menu Overlay/MarginContainer/HBoxContainer/MarginContainer2/VBoxContainer2/HBoxContainer2/CheckBox_SFX" to="HoverUI/Game Menu Overlay" method="_on_check_box_sfx_toggled"]
+[connection signal="value_changed" from="HoverUI/Game Menu Overlay/MarginContainer/HBoxContainer/MarginContainer2/VBoxContainer2/HBoxContainer2/Slider_SFX" to="HoverUI/Game Menu Overlay" method="_on_slider_sfx_value_changed"]
+[connection signal="toggled" from="HoverUI/Game Menu Overlay/MarginContainer/HBoxContainer/MarginContainer2/VBoxContainer2/HBoxContainer3/CheckBox_BGM" to="HoverUI/Game Menu Overlay" method="_on_check_box_bgm_toggled"]
+[connection signal="value_changed" from="HoverUI/Game Menu Overlay/MarginContainer/HBoxContainer/MarginContainer2/VBoxContainer2/HBoxContainer3/Slider_BGM" to="HoverUI/Game Menu Overlay" method="_on_slider_bgm_value_changed"]
+[connection signal="toggled" from="HoverUI/Game Menu Overlay/MarginContainer/HBoxContainer/MarginContainer3/VBoxContainer2/Button_Secret" to="HoverUI/Game Menu Overlay" method="_on_button_secret_toggled"]
+[connection signal="pressed" from="HoverUI/Game Menu Overlay/HBoxContainer/Button_ClearSettings" to="HoverUI/Game Menu Overlay" method="_on_button_clear_settings_pressed"]
+[connection signal="pressed" from="HoverUI/Game Menu Overlay/HBoxContainer/Button_Exit" to="GameController" method="_on_button_exit_pressed"]
+[connection signal="pressed" from="HoverUI/Game Menu Overlay/HBoxContainer/Button_Back" to="HoverUI" method="_on_settings_button_back_pressed"]

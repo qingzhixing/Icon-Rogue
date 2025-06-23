@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bn7xbn11j75y0" path="res://script/entity/enemy/enemy.gd" id="1_t13ef"]
 [ext_resource type="Script" uid="uid://cy0co16ydd3w" path="res://script/entity/enemy/enemy_entity.gd" id="2_4g8rn"]
-[ext_resource type="Script" uid="uid://bd1oxv0hkmcqm" path="res://script/entity/enemy/entity_data.gd" id="3_v0gmk"]
+[ext_resource type="Script" uid="uid://bd1oxv0hkmcqm" path="res://script/entity/entity_data.gd" id="3_v0gmk"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_t13ef"]
 friction = 0.0

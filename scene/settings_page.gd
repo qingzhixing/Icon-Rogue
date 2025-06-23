@@ -11,6 +11,7 @@ extends Node
 
 @onready var button_secret: Button = $MarginContainer/HBoxContainer/MarginContainer3/VBoxContainer2/Button_Secret
 
+
 func _ready() -> void:
 	sync_settings_to_ui_state();
 	
@@ -69,3 +70,8 @@ func _on_slider_sfx_value_changed(value: float) -> void:
 
 func _on_slider_bgm_value_changed(value: float) -> void:
 	GlobalSettings.set_bus_volume_percent(GlobalSettings.AudioBus.BGM, value);
+
+
+func _on_back_button_pressed() -> void:
+	GlobalSettings.save_settings();
+	get_tree().change_scene_to_file("res://scene/start_page.tscn");

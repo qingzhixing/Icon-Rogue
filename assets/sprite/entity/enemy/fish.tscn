@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://oe1qhihwu6kt" path="res://assets/sprite/entity/enemy/Fish.png" id="1_arv1m"]
 [ext_resource type="Script" uid="uid://bpwgat4hfple5" path="res://script/entity/enemy/fish.gd" id="1_bqoj2"]
 [ext_resource type="Script" uid="uid://cy0co16ydd3w" path="res://script/entity/enemy/enemy_entity.gd" id="2_xnddo"]
-[ext_resource type="Script" uid="uid://bd1oxv0hkmcqm" path="res://script/entity/enemy/entity_data.gd" id="3_xnddo"]
+[ext_resource type="Script" uid="uid://bd1oxv0hkmcqm" path="res://script/entity/entity_data.gd" id="3_xnddo"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_a56cw"]
 friction = 0.0

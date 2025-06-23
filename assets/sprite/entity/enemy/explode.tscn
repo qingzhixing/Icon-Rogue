@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://pppou07anly6" path="res://assets/sprite/entity/enemy/explode.png" id="1_ptjiq"]
 [ext_resource type="Script" uid="uid://dtqgpfm5ommaw" path="res://script/entity/enemy/explode.gd" id="1_vlxgw"]
-[ext_resource type="Script" uid="uid://bd1oxv0hkmcqm" path="res://script/entity/enemy/entity_data.gd" id="3_mcdmu"]
+[ext_resource type="Script" uid="uid://bd1oxv0hkmcqm" path="res://script/entity/entity_data.gd" id="3_mcdmu"]
 
 [sub_resource type="Animation" id="Animation_2qe4e"]
 resource_name = "Explode"

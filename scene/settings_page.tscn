@@ -1,17 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dif5axr62dmxy"]
+[gd_scene load_steps=4 format=3 uid="uid://dif5axr62dmxy"]
 
 [ext_resource type="Script" uid="uid://ductmq20f5s20" path="res://scene/settings_page.gd" id="1_6ua28"]
 [ext_resource type="Theme" uid="uid://bvbf0bvyvo0vp" path="res://resources/theme/normal_theme.tres" id="1_00343"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6ua28"]
-
-[sub_resource type="GDScript" id="GDScript_6ua28"]
-script/source = "extends Button
-
-func _on_pressed() -> void:
-	get_tree().change_scene_to_file(\"res://scene/start_page.tscn\");
-	GlobalSettings.save_settings();
-"
 
 [node name="SettingsPage" type="CanvasLayer"]
 script = ExtResource("1_6ua28")
@@ -171,7 +163,6 @@ offset_bottom = 619.0
 theme = ExtResource("1_00343")
 theme_override_font_sizes/font_size = 32
 text = "Back"
-script = SubResource("GDScript_6ua28")
 
 [node name="Button_ClearSettings" type="Button" parent="."]
 offset_left = 56.0
@@ -190,5 +181,5 @@ text = "清除设置"
 [connection signal="toggled" from="MarginContainer/HBoxContainer/MarginContainer2/VBoxContainer2/HBoxContainer3/CheckBox_BGM" to="." method="_on_check_box_bgm_toggled"]
 [connection signal="value_changed" from="MarginContainer/HBoxContainer/MarginContainer2/VBoxContainer2/HBoxContainer3/Slider_BGM" to="." method="_on_slider_bgm_value_changed"]
 [connection signal="toggled" from="MarginContainer/HBoxContainer/MarginContainer3/VBoxContainer2/Button_Secret" to="." method="_on_button_secret_toggled"]
-[connection signal="pressed" from="Button_Back" to="Button_Back" method="_on_pressed"]
+[connection signal="pressed" from="Button_Back" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="Button_ClearSettings" to="." method="_on_button_clear_settings_pressed"]
