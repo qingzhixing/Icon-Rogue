@@ -1,5 +1,7 @@
 class_name Creeper extends Enemy
 
+@onready var injured_effect: InjuredEffect = $"Injured Effect"
+
 @export var can_explode = true;
 
 var explode_scene: PackedScene = preload("res://assets/sprite/entity/enemy/explode.tscn");
@@ -10,6 +12,7 @@ func on_death() -> void:
 
 func on_damaged(_damage: int, _source: EntityData) -> void:
 	SoundPlayer.play_sfx("enemy/creeper/say" + str(randi() % 4 + 1) + ".ogg");
+	injured_effect.display_effect();
 
 
 func on_explode_entered(area: Area2D) -> void:

@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://disiro1pn17a"]
+[gd_scene load_steps=9 format=3 uid="uid://disiro1pn17a"]
 
 [ext_resource type="Texture2D" uid="uid://oe1qhihwu6kt" path="res://assets/sprite/entity/enemy/Fish.png" id="1_arv1m"]
 [ext_resource type="Script" uid="uid://bpwgat4hfple5" path="res://script/entity/enemy/fish.gd" id="1_bqoj2"]
+[ext_resource type="PackedScene" uid="uid://dc3f34qfqtswh" path="res://scene/animation node/injured_effect.tscn" id="2_krajm"]
 [ext_resource type="Script" uid="uid://cy0co16ydd3w" path="res://script/entity/enemy/enemy_entity.gd" id="2_xnddo"]
 [ext_resource type="Script" uid="uid://bd1oxv0hkmcqm" path="res://script/entity/entity_data.gd" id="3_xnddo"]
 
@@ -24,6 +25,8 @@ physics_material_override = SubResource("PhysicsMaterial_a56cw")
 can_sleep = false
 lock_rotation = true
 script = ExtResource("1_bqoj2")
+
+[node name="Injured Effect" parent="." instance=ExtResource("2_krajm")]
 
 [node name="EnemyEntity" type="Node" parent="."]
 script = ExtResource("2_xnddo")

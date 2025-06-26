@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://dc3f34qfqtswh"]
+
+[ext_resource type="Script" uid="uid://cyri0asbisb05" path="res://scene/animation node/injured_effect.gd" id="1_4yege"]
+
+[node name="Injured Effect" type="Node"]
+script = ExtResource("1_4yege")
+
+[node name="Animation Timer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[connection signal="timeout" from="Animation Timer" to="." method="_on_animation_timer_timeout"]
