@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dc3f34qfqtswh"]
 
-[ext_resource type="Script" uid="uid://cyri0asbisb05" path="res://script/animation_node/injured_effect.gd" id="1_4yege"]
+[ext_resource type="Script" uid="uid://cyri0asbisb05" path="res://script/animation/injured_effect.gd" id="1_4yege"]
 
 [node name="Injured Effect" type="Node"]
 script = ExtResource("1_4yege")

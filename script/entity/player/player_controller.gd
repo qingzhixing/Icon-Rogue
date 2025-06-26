@@ -5,6 +5,7 @@ class_name PlayerController
 @onready var hover_ui: UIController = %HoverUI
 @onready var game_controller: Node = %GameController
 @onready var injured_effect: InjuredEffect = $"Injured Effect"
+@onready var particle_injured: CPUParticles2D = $ParticleInjured
 
 func _ready():
 	hover_ui.update_player_health_display(entity_data);
@@ -29,6 +30,7 @@ func on_area_entered(area: Area2D):
 func on_damaged(_damage: int, _source: EntityData) -> void:
 	SoundPlayer.play_sfx("injured/hurt" + str(randi() % 2 + 1) + ".ogg", 0.5);
 	injured_effect.display_effect();
+	particle_injured.emitting = true;
 	hover_ui.update_player_health_display(entity_data);
 
 func respawn():

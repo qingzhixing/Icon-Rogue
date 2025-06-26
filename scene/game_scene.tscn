@@ -36,6 +36,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="background" type="ColorRect" parent="UI"]
+z_index = -10
 layout_mode = 0
 offset_left = -576.0
 offset_top = -324.0
@@ -315,12 +316,16 @@ position_smoothing_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("2_1tamk")]
 unique_name_in_owner = true
+modulate = Color(1, 1, 1, 1)
 position = Vector2(-457.25, 200)
 
 [node name="Map Elements" type="Node2D" parent="."]
+z_index = -5
 
 [node name="bricks" type="Node2D" parent="Map Elements"]
 modulate = Color(0.858824, 0.501961, 0, 1)
+light_mask = 32
+visibility_layer = 32
 position = Vector2(0, 192)
 
 [node name="BrickSprite" parent="Map Elements/bricks" instance=ExtResource("1_qsiw5")]

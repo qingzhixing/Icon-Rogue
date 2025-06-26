@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://dbr1d3ag3is1e"]
+[gd_scene load_steps=8 format=3 uid="uid://dbr1d3ag3is1e"]
 
 [ext_resource type="Texture2D" uid="uid://dcifdlgr6dggr" path="res://assets/sprite/entity/player/player.png" id="1_3up65"]
 [ext_resource type="Script" uid="uid://b4bvbt88nibg7" path="res://script/entity/player/player_controller.gd" id="1_5nvlc"]
 [ext_resource type="Script" uid="uid://bd1oxv0hkmcqm" path="res://script/entity/entity_data.gd" id="2_hcyir"]
-[ext_resource type="PackedScene" uid="uid://dc3f34qfqtswh" path="res://prefabs/animation node/injured_effect.tscn" id="4_23v66"]
+[ext_resource type="PackedScene" uid="uid://dc3f34qfqtswh" path="res://prefabs/animation/injured_effect.tscn" id="4_23v66"]
+[ext_resource type="PackedScene" uid="uid://fwikehji44pu" path="res://prefabs/animation/particles/particle_injured.tscn" id="5_nespj"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i8ryp"]
 radius = 24.0
@@ -12,43 +13,6 @@ height = 96.0
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u6xtk"]
 radius = 24.0
 height = 96.0
-
-[sub_resource type="Animation" id="Animation_hcyir"]
-resource_name = "injured"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0333333, 0.1),
-"transitions": PackedFloat32Array(0.196146, 28.84, 1),
-"update": 0,
-"values": [Color(0.234074, 0.846801, 0.347261, 1), Color(0.569206, 0, 0.0720483, 1), Color(0.234074, 0.846801, 0.347261, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_23v66"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0.234074, 0.846801, 0.347261, 1)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_pvveg"]
-_data = {
-&"RESET": SubResource("Animation_23v66"),
-&"injured": SubResource("Animation_hcyir")
-}
 
 [node name="Player" type="RigidBody2D"]
 modulate = Color(0.234074, 0.846801, 0.347261, 1)
@@ -66,6 +30,7 @@ position = Vector2(0, -64)
 shape = SubResource("CapsuleShape2D_i8ryp")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(0.235294, 0.847059, 0.34902, 1)
 position = Vector2(0, -64)
 scale = Vector2(0.64, 0.64)
 texture = ExtResource("1_3up65")
@@ -82,12 +47,12 @@ shape = SubResource("CapsuleShape2D_u6xtk")
 wait_time = 0.3
 one_shot = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_pvveg")
-}
+[node name="Injured Effect" parent="." node_paths=PackedStringArray("target") instance=ExtResource("4_23v66")]
+target = NodePath("../Sprite2D")
 
-[node name="Injured Effect" parent="." instance=ExtResource("4_23v66")]
+[node name="ParticleInjured" parent="." instance=ExtResource("5_nespj")]
+z_index = 1
+position = Vector2(0, -64)
 
 [connection signal="on_damaged" from="EntityData" to="." method="on_damaged"]
 [connection signal="on_death" from="EntityData" to="." method="on_death"]

@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://fwikehji44pu"]
+
+[sub_resource type="Curve" id="Curve_h6qik"]
+_data = [Vector2(0, 0.986309), 0.0, 0.0, 0, 0, Vector2(0.354237, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.541338), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_5tmem"]
+offsets = PackedFloat32Array(0, 0.931298)
+colors = PackedColorArray(0.908163, 0.908163, 0.908163, 1, 0.581434, 0.581434, 0.581434, 1)
+
+[node name="ParticleInjured" type="CPUParticles2D"]
+rotation = 1.5708
+emitting = false
+lifetime = 0.4
+one_shot = true
+explosiveness = 1.0
+emission_shape = 1
+emission_sphere_radius = 40.0
+spread = 42.47
+gravity = Vector2(0, 500)
+initial_velocity_min = 150.0
+initial_velocity_max = 300.0
+scale_amount_min = 10.0
+scale_amount_max = 13.0
+scale_amount_curve = SubResource("Curve_h6qik")
+color = Color(0.886008, 0.0979644, 0.126909, 1)
+color_ramp = SubResource("Gradient_5tmem")

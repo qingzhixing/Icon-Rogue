@@ -4,7 +4,7 @@ class_name Creeper extends Enemy
 
 @export var can_explode = true;
 
-var explode_scene: PackedScene = preload("res://assets/sprite/entity/enemy/explode.tscn");
+@export var explode_scene: PackedScene;
 
 func on_death() -> void:
 	SoundPlayer.play_sfx("enemy/creeper/death.ogg");
