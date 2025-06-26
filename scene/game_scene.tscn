@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cpmic0eif1dup"]
+[gd_scene load_steps=19 format=3 uid="uid://cpmic0eif1dup"]
 
 [ext_resource type="Texture2D" uid="uid://bh4jmqayun8c0" path="res://assets/ui/heart.png" id="1_djtiv"]
 [ext_resource type="PackedScene" uid="uid://c7s61c8fyguyi" path="res://prefabs/map elements/ground/brick.tscn" id="1_qsiw5"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://balgi0d8jpxym" path="res://prefabs/sprite/weapon/Sword.tscn" id="9_ojbyw"]
 [ext_resource type="PackedScene" uid="uid://bamq47f6ekvtv" path="res://prefabs/sprite/entity/enemy/creeper.tscn" id="10_w3nls"]
 [ext_resource type="PackedScene" uid="uid://disiro1pn17a" path="res://prefabs/sprite/entity/enemy/fish.tscn" id="10_x8u7y"]
+[ext_resource type="PackedScene" uid="uid://dwumofg7675p6" path="res://prefabs/animation/particles/gpu_injuered_particle.tscn" id="13_81ico"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5w0dq"]
 
@@ -21,6 +22,10 @@
 friction = 0.0
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_157wv"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_81ico"]
+cull_mode = 1
+polygon = PackedVector2Array(-568, 0, 1192, 0, 200, 232)
 
 [node name="game_scene" type="Node2D"]
 
@@ -505,6 +510,13 @@ spawn_amount = 0
 enable_life_time = false
 instance_life_time_sec = 3.0
 start_spawn = true
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+position = Vector2(-248, 192)
+occluder = SubResource("OccluderPolygon2D_81ico")
+
+[node name="GPUParticles2D" parent="." instance=ExtResource("13_81ico")]
+position = Vector2(-248, 64)
 
 [connection signal="pressed" from="HoverUI/Game Over Overlay/Restart Button" to="GameController" method="_on_restart_button_pressed"]
 [connection signal="toggled" from="HoverUI/Game Menu Overlay/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/CheckButton_FullScreen" to="HoverUI/Game Menu Overlay" method="_on_check_button_full_screen_toggled"]
