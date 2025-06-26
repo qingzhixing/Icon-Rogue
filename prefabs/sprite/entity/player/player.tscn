@@ -1,9 +1,9 @@
 [gd_scene load_steps=10 format=3 uid="uid://dbr1d3ag3is1e"]
 
-[ext_resource type="Texture2D" uid="uid://dcifdlgr6dggr" path="res://assets/sprite/entity/player.png" id="1_3up65"]
+[ext_resource type="Texture2D" uid="uid://dcifdlgr6dggr" path="res://assets/sprite/entity/player/player.png" id="1_3up65"]
 [ext_resource type="Script" uid="uid://b4bvbt88nibg7" path="res://script/entity/player/player_controller.gd" id="1_5nvlc"]
 [ext_resource type="Script" uid="uid://bd1oxv0hkmcqm" path="res://script/entity/entity_data.gd" id="2_hcyir"]
-[ext_resource type="PackedScene" uid="uid://dc3f34qfqtswh" path="res://scene/animation node/injured_effect.tscn" id="4_23v66"]
+[ext_resource type="PackedScene" uid="uid://dc3f34qfqtswh" path="res://prefabs/animation node/injured_effect.tscn" id="4_23v66"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i8ryp"]
 radius = 24.0

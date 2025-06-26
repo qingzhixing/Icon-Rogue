@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://c7s61c8fyguyi"]
 
-[ext_resource type="Texture2D" uid="uid://c6bttbkiojmg6" path="res://assets/map_element/ground/brick.png" id="1_l0ub5"]
+[ext_resource type="Texture2D" uid="uid://c6bttbkiojmg6" path="res://assets/map elements/ground/brick.png" id="1_l0ub5"]
 
 [node name="BrickSprite" type="Sprite2D"]
 scale = Vector2(0.32, 0.32)

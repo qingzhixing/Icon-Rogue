@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dcifdlgr6dggr"
-path="res://.godot/imported/player.png-4a417ef7372563c51b52e8697499cce7.ctex"
+uid="uid://c6bttbkiojmg6"
+path="res://.godot/imported/brick.png-044e102358d554ac9f60d9e2370fad07.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprite/entity/player.png"
-dest_files=["res://.godot/imported/player.png-4a417ef7372563c51b52e8697499cce7.ctex"]
+source_file="res://assets/map elements/ground/brick.png"
+dest_files=["res://.godot/imported/brick.png-044e102358d554ac9f60d9e2370fad07.ctex"]
 
 [params]
 

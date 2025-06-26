@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cnoj6jxmts4ix" path="res://script/entity/enemy/creeper.gd" id="1_4gd27"]
 [ext_resource type="Script" uid="uid://cy0co16ydd3w" path="res://script/entity/enemy/enemy_entity.gd" id="1_bkgrr"]
-[ext_resource type="PackedScene" uid="uid://dc3f34qfqtswh" path="res://scene/animation node/injured_effect.tscn" id="2_2qe4e"]
+[ext_resource type="PackedScene" uid="uid://dc3f34qfqtswh" path="res://prefabs/animation node/injured_effect.tscn" id="2_2qe4e"]
 [ext_resource type="Script" uid="uid://bd1oxv0hkmcqm" path="res://script/entity/entity_data.gd" id="2_ugl7j"]
 [ext_resource type="Texture2D" uid="uid://d1eyo3ppyofbf" path="res://assets/sprite/entity/enemy/creeper.png" id="3_ugl7j"]
 

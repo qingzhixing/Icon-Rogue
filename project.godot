@@ -17,10 +17,10 @@ config/icon="res://assets/app_icon/icon.svg"
 
 [autoload]
 
-SoundPlayer="*res://script/game_control/global_sound_player.gd"
-GameStopper="*res://script/game_control/game_stopper.gd"
-GlobalSettings="*res://script/game_control/global_settings.gd"
-HotkeyController="*res://script/game_control/hotkey_controller.gd"
+SoundPlayer="*res://script/game_control/global control/global_sound_player.gd"
+GameStopper="*res://script/game_control/global control/game_stopper.gd"
+GlobalSettings="*res://script/game_control/global control/global_settings.gd"
+HotkeyController="*res://script/game_control/global control/hotkey_controller.gd"
 
 [display]
 

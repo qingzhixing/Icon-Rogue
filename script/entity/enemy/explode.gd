@@ -11,11 +11,9 @@ var entered_entity: Array = [];
 
 func _ready() -> void:
 	animation_player.play("RESET");
-	#explode_sprite.visible = false;
 	exploding = false;
 
 func do_explode(from: EntityData = entity_data):
-	#print("Do Explode From:", from.get_parent().name)
 	#explode_sprite.visible = true;
 	explode_from = from;
 	exploding = true;
