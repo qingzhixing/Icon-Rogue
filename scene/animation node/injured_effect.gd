@@ -16,7 +16,7 @@ func calculate_animation_process() -> float:
 	return 1 - animation_timer.time_left / animation_timer.wait_time;
 
 func display_effect() -> void:
-	if animation_timer.time_left > 0:
+	if !animation_timer.is_stopped():
 		return ;
 	parent.modulate = lerp(original_modulate, Color.FIREBRICK, min(max_effect_rate, calculate_animation_process()));
 	animation_timer.start();
