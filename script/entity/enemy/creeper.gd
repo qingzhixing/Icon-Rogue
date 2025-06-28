@@ -22,11 +22,11 @@ func on_explode_entered(area: Area2D) -> void:
 		return
 	if explode_scene == null || !explode_scene.can_instantiate():
 		return ;
-	call_deferred("delay_explode")
+	delay_explode.call_deferred();
 
 func delay_explode():
 	var explode = explode_scene.instantiate() as Explode
-	get_tree().current_scene.add_child(explode)
+	get_parent().add_child(explode)
 	explode.do_explode(entity_data)
 	explode.position = position
 	SoundPlayer.play_sfx("enemy/creeper/death.ogg");

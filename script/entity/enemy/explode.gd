@@ -1,8 +1,11 @@
-class_name Explode extends Node2D
+extends Node2D
+class_name Explode
 
-@onready var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var explode_sprite: Sprite2D = $"Explode Sprite"
 @onready var entity_data: EntityData = $EntityData
+@onready var explosion_particle: GPUParticles2D = $"Explosion Particle"
+@onready var explode_timer: Timer = $"Explode Timer"
+@onready var visual_timer: Timer = $"Visual Timer"
+
 var explode_from: EntityData = null;
 
 var exploding: bool = false;
@@ -10,14 +13,14 @@ var exploded: bool = false;
 var entered_entity: Array = [];
 
 func _ready() -> void:
-	animation_player.play("RESET");
 	exploding = false;
 
 func do_explode(from: EntityData = entity_data):
-	#explode_sprite.visible = true;
 	explode_from = from;
 	exploding = true;
-	animation_player.play("Explode");
+	explosion_particle.emitting = true;
+	explode_timer.start();
+	visual_timer.start();
 	SoundPlayer.play_sfx("explode/Explosion" + str(randi() % 5 + 1) + ".ogg");
 	pass
 
@@ -33,4 +36,7 @@ func on_area_entered(area: Area2D) -> void:
 		player.entity_data.take_damage(entity_data.attack, explode_from)
 
 func on_end_explosion() -> void:
-	queue_free()
+	exploding = false;
+
+func on_end_vision() -> void:
+	queue_free();
