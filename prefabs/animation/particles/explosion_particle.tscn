@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://ldgk6xu6plye"]
 
 [sub_resource type="Gradient" id="Gradient_cq7mu"]
-offsets = PackedFloat32Array(0, 0.749491, 0.936864)
-colors = PackedColorArray(0, 0.908545, 0.238018, 1, 1, 0.516754, 0.34739, 1, 0.611766, 0.611766, 0.611766, 1)
+offsets = PackedFloat32Array(0, 0.371429, 0.936864)
+colors = PackedColorArray(0.883908, 0, 0.211419, 1, 0.987584, 0.501198, 0.00898651, 1, 0.611766, 0.611766, 0.611766, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_50qnk"]
 gradient = SubResource("Gradient_cq7mu")
@@ -17,18 +17,17 @@ curve = SubResource("Curve_cq7mu")
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_cq7mu"]
 particle_flag_disable_z = true
 emission_shape = 2
-emission_sphere_radius = 35.69
+emission_sphere_radius = 17.86
 angular_velocity_min = -15.13
 angular_velocity_max = 17.65
 orbit_velocity_min = -0.182
 orbit_velocity_max = 0.168
-radial_velocity_min = 487.83
-radial_velocity_max = 712.95
+radial_velocity_min = 758.01
+radial_velocity_max = 983.13
 gravity = Vector3(0, 0, 0)
-scale_min = 8.0
-scale_max = 15.0
+scale_min = 10.0
+scale_max = 30.0
 scale_curve = SubResource("CurveTexture_50qnk")
-color = Color(0.719633, 0.719633, 0.719633, 1)
 color_ramp = SubResource("GradientTexture1D_50qnk")
 collision_mode = 1
 collision_friction = 0.0

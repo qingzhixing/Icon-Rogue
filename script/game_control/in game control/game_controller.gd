@@ -18,6 +18,7 @@ func do_restart():
 	do_exit();
 
 func do_exit():
+	GameStopper.set_game_stopped(false);
 	get_tree().change_scene_to_file("res://scene/start_page.tscn");
 
 func on_player_dead():

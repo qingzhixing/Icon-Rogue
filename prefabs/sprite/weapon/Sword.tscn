@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://balgi0d8jpxym"]
+[gd_scene load_steps=7 format=3 uid="uid://balgi0d8jpxym"]
 
 [ext_resource type="Texture2D" uid="uid://dye0pkf8belxp" path="res://assets/sprite/weapon/剑.png" id="1_3l00a"]
 [ext_resource type="Script" uid="uid://cmf0st03v8v1e" path="res://script/weapon/sword.gd" id="1_cmeob"]
 [ext_resource type="Script" uid="uid://bd1oxv0hkmcqm" path="res://script/entity/entity_data.gd" id="3_a7b7q"]
+[ext_resource type="PackedScene" uid="uid://pcymw605ti46" path="res://prefabs/animation/particles/sword_fly_particle.tscn" id="4_v2wsh"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e2cwa"]
 height = 67.8822
@@ -45,5 +46,13 @@ moving_direction = "right"
 max_velocity_x_abs = 400
 knockback_velocity = Vector2(250, -200)
 
+[node name="Sword Fly Particle" parent="." instance=ExtResource("4_v2wsh")]
+position = Vector2(-40, 0)
+
+[node name="Disapear Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
 [connection signal="area_entered" from="Attack Area" to="." method="on_area_entered"]
 [connection signal="area_exited" from="Attack Area" to="." method="on_area_exited"]
+[connection signal="timeout" from="Disapear Timer" to="." method="queue_free"]

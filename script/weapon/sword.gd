@@ -1,12 +1,20 @@
 extends RigidBody2D
 
 @onready var entity_data: EntityData = $EntityData
+@onready var disapear_timer: Timer = $"Disapear Timer"
+@onready var sword_fly_particle: GPUParticles2D = $"Sword Fly Particle"
+@onready var sprite_2d: Sprite2D = $Sprite2D
+
+var _disapearing: bool = false;
 
 func _ready() -> void:
+	sword_fly_particle.emitting = true;
 	linear_velocity.x = entity_data.get_max_velocity_x();
 
 func on_area_entered(area: Area2D) -> void:
-	if !area.get_collision_layer_value(3):	# 仅伤害Enemy
+	if _disapearing:
+		return ;
+	if !area.get_collision_layer_value(3): # 仅伤害Enemy
 		return
 	var area_parent = area.get_parent();
 	if area_parent is Enemy:
@@ -16,4 +24,7 @@ func on_area_entered(area: Area2D) -> void:
 		enemy.linear_velocity.x = max(0, enemy.linear_velocity.x);
 		enemy.linear_velocity.y = max(0, enemy.linear_velocity.y);
 		enemy.linear_velocity += entity_data.knockback_velocity;
-		queue_free();
+		_disapearing = true;
+		sprite_2d.visible = false;
+		sword_fly_particle.emitting = false;
+		disapear_timer.start();

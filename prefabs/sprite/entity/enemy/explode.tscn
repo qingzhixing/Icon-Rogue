@@ -27,14 +27,9 @@ attack = 30
 knockback_velocity = Vector2(0, 0)
 metadata/_custom_type_script = "uid://bd1oxv0hkmcqm"
 
-[node name="Explode Timer" type="Timer" parent="."]
-wait_time = 0.1
-one_shot = true
-
-[node name="Visual Timer" type="Timer" parent="."]
+[node name="Queue Free Timer" type="Timer" parent="."]
 wait_time = 0.65
 one_shot = true
 
 [connection signal="area_entered" from="Area2D" to="." method="on_area_entered"]
-[connection signal="timeout" from="Explode Timer" to="." method="on_end_explosion"]
-[connection signal="timeout" from="Visual Timer" to="." method="on_end_vision"]
+[connection signal="timeout" from="Queue Free Timer" to="." method="queue_free"]

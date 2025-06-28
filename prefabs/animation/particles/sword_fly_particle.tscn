@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3 uid="uid://pcymw605ti46"]
+
+[ext_resource type="Texture2D" uid="uid://w85lg7el1pkl" path="res://assets/sprite/particle/sparkle.png" id="1_x40p1"]
+
+[sub_resource type="Gradient" id="Gradient_x40p1"]
+offsets = PackedFloat32Array(0.216327, 0.497959, 1)
+colors = PackedColorArray(0.874664, 0, 0.257696, 1, 1, 1, 1, 0.815, 1, 1, 1, 0.37551)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_6fpyy"]
+gradient = SubResource("Gradient_x40p1")
+
+[sub_resource type="Curve" id="Curve_x40p1"]
+_data = [Vector2(0, 0.873926), 0.0, 0.0, 0, 0, Vector2(0.190249, 1), 0.0, 0.0, 0, 0, Vector2(0.800191, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.423663), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_6fpyy"]
+curve = SubResource("Curve_x40p1")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_x40p1"]
+lifetime_randomness = 0.82
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 14.7
+radial_velocity_min = -2.23517e-05
+radial_velocity_max = 24.56
+gravity = Vector3(0, 0, 0)
+scale_max = 3.0
+scale_curve = SubResource("CurveTexture_6fpyy")
+color_ramp = SubResource("GradientTexture1D_6fpyy")
+collision_use_scale = true
+
+[node name="Sword Fly Particle" type="GPUParticles2D"]
+process_mode = 3
+amount = 20
+texture = ExtResource("1_x40p1")
+lifetime = 0.5
+process_material = SubResource("ParticleProcessMaterial_x40p1")

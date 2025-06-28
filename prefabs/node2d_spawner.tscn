@@ -4,6 +4,14 @@
 
 [node name="Node2D Spawner" type="Node2D"]
 script = ExtResource("1_5kapb")
+target_scene = null
+manually_spawn = false
+spawn_interval_sec = 0.5
+start_spawn = false
+infinity_spawn = false
+spawn_amount = 10
+enable_life_time = true
+instance_life_time_sec = 5.0
 
 [node name="Spawn Timer" type="Timer" parent="."]
 

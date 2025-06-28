@@ -84,10 +84,9 @@ func spawn_instance() -> Node2D:
 	instance = instance as Node2D;
 
 	# Add to scene(as parent's child)
-	get_parent().add_child.call_deferred(instance);
-
 	instance.position = position;
 	instance.rotation = rotation;
+	get_parent().add_child.call_deferred(instance);
 
 	# Increase the spawn count
 	_spawn_count += 1;

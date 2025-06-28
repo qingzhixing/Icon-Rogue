@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://pppou07anly6"
-path="res://.godot/imported/explode.png-c791cee7753966144e75477af152f84a.ctex"
+uid="uid://w85lg7el1pkl"
+path="res://.godot/imported/sparkle.png-55db9527eb92e8fac79c4a3c16dc7dd7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprite/entity/enemy/explode.png"
-dest_files=["res://.godot/imported/explode.png-c791cee7753966144e75477af152f84a.ctex"]
+source_file="res://assets/sprite/particle/sparkle.png"
+dest_files=["res://.godot/imported/sparkle.png-55db9527eb92e8fac79c4a3c16dc7dd7.ctex"]
 
 [params]
 

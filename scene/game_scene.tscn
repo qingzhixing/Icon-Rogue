@@ -131,7 +131,6 @@ flat = true
 
 [node name="Game Menu Overlay" type="Control" parent="HoverUI"]
 process_mode = 3
-visible = false
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("5_lonp8")
@@ -482,8 +481,7 @@ texture = ExtResource("5_ud8a0")
 [node name="Sword Spawner" parent="." instance=ExtResource("8_c8mr4")]
 position = Vector2(-456, 135)
 target_scene = ExtResource("9_ojbyw")
-manually_spawn = true
-spawn_interval_sec = 2.0
+spawn_interval_sec = 1.0
 start_spawn = true
 infinity_spawn = true
 spawn_amount = 0
@@ -493,8 +491,7 @@ instance_life_time_sec = 3.0
 [node name="Creeper Spawner" parent="." instance=ExtResource("8_c8mr4")]
 position = Vector2(496, 128)
 target_scene = ExtResource("10_w3nls")
-manually_spawn = false
-spawn_interval_sec = 5.0
+spawn_interval_sec = 3.0
 start_spawn = true
 infinity_spawn = true
 spawn_amount = 0
@@ -504,7 +501,6 @@ instance_life_time_sec = 3.0
 [node name="Fish Spawner" parent="." instance=ExtResource("8_c8mr4")]
 position = Vector2(496, 128)
 target_scene = ExtResource("10_x8u7y")
-manually_spawn = true
 spawn_interval_sec = 15.0
 start_spawn = true
 infinity_spawn = true
