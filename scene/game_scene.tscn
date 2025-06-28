@@ -97,7 +97,7 @@ offset_bottom = 648.0
 layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
-color = Color(0.301901, 0.210716, 0.180196, 0.843137)
+color = Color(0.433651, 0.433651, 0.433651, 0.521)
 metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="HoverUI/Game Over Overlay"]
@@ -320,7 +320,7 @@ position_smoothing_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("2_1tamk")]
 unique_name_in_owner = true
-position = Vector2(-457.25, 200)
+position = Vector2(-393, 144)
 
 [node name="Map Elements" type="Node2D" parent="."]
 z_index = -5

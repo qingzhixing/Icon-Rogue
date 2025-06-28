@@ -39,22 +39,26 @@ func _on_button_clear_settings_pressed() -> void:
 
 func _on_check_button_full_screen_toggled(toggled_on: bool) -> void:
 	GlobalSettings.set_fullscreen(toggled_on);
+	GlobalSettings.save_settings();
 
 # ====== Mute CheckBox
 func _on_check_box_master_toggled(toggled_on: bool) -> void:
 	GlobalSettings.set_bus_mute(GlobalSettings.AudioBus.MASTER, !toggled_on);
 	GlobalSettings.set_bus_volume_percent(GlobalSettings.AudioBus.MASTER, slider_master.value);
 	slider_master.editable = toggled_on;
+	GlobalSettings.save_settings();
 
 func _on_check_box_bgm_toggled(toggled_on: bool) -> void:
 	GlobalSettings.set_bus_mute(GlobalSettings.AudioBus.BGM, !toggled_on);
 	GlobalSettings.set_bus_volume_percent(GlobalSettings.AudioBus.BGM, slider_bgm.value);
 	slider_bgm.editable = toggled_on;
-
+	GlobalSettings.save_settings();
+	
 func _on_check_box_sfx_toggled(toggled_on: bool) -> void:
 	GlobalSettings.set_bus_mute(GlobalSettings.AudioBus.SFX, !toggled_on);
 	GlobalSettings.set_bus_volume_percent(GlobalSettings.AudioBus.SFX, slider_sfx.value);
 	slider_sfx.editable = toggled_on;
+	GlobalSettings.save_settings();
 
 
 func _on_button_secret_toggled(toggled_on: bool) -> void:
@@ -64,12 +68,15 @@ func _on_button_secret_toggled(toggled_on: bool) -> void:
 # ====== Volumn Slider
 func _on_slider_master_value_changed(value: float) -> void:
 	GlobalSettings.set_bus_volume_percent(GlobalSettings.AudioBus.MASTER, value);
+	GlobalSettings.save_settings();
 
 func _on_slider_sfx_value_changed(value: float) -> void:
 	GlobalSettings.set_bus_volume_percent(GlobalSettings.AudioBus.SFX, value);
+	GlobalSettings.save_settings();
 
 func _on_slider_bgm_value_changed(value: float) -> void:
 	GlobalSettings.set_bus_volume_percent(GlobalSettings.AudioBus.BGM, value);
+	GlobalSettings.save_settings();
 
 
 func _on_back_button_pressed() -> void:

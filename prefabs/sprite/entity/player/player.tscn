@@ -26,16 +26,15 @@ script = ExtResource("2_hcyir")
 knockback_velocity = Vector2(400, -300)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -64)
 shape = SubResource("CapsuleShape2D_i8ryp")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 self_modulate = Color(0.235294, 0.847059, 0.34902, 1)
-position = Vector2(0, -64)
 scale = Vector2(0.64, 0.64)
 texture = ExtResource("1_3up65")
 
 [node name="Entity Area" type="Area2D" parent="."]
+position = Vector2(0, 64)
 collision_layer = 2
 collision_mask = 20
 
@@ -51,7 +50,6 @@ one_shot = true
 target = NodePath("../Sprite2D")
 
 [node name="Particle Injured Spawner" parent="." instance=ExtResource("5_7djjd")]
-position = Vector2(0, -64)
 target_scene = ExtResource("5_nespj")
 manually_spawn = true
 spawn_interval_sec = 0.5
