@@ -31,6 +31,7 @@ collision_use_scale = true
 
 [node name="Sword Fly Particle" type="GPUParticles2D"]
 process_mode = 3
+emitting = false
 amount = 20
 texture = ExtResource("1_x40p1")
 lifetime = 0.5

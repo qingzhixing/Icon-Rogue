@@ -131,6 +131,7 @@ flat = true
 
 [node name="Game Menu Overlay" type="Control" parent="HoverUI"]
 process_mode = 3
+visible = false
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("5_lonp8")
@@ -479,7 +480,7 @@ scale = Vector2(0.61, 0.61)
 texture = ExtResource("5_ud8a0")
 
 [node name="Sword Spawner" parent="." instance=ExtResource("8_c8mr4")]
-position = Vector2(-456, 135)
+position = Vector2(-384, 144)
 target_scene = ExtResource("9_ojbyw")
 spawn_interval_sec = 1.0
 start_spawn = true

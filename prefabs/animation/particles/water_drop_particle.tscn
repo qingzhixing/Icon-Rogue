@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://fmv0bjnhlfh3"]
+
+[sub_resource type="Gradient" id="Gradient_is72d"]
+offsets = PackedFloat32Array(0, 0.848558, 1)
+colors = PackedColorArray(0.0528211, 0.29687, 0.687108, 1, 0.28268, 0.560043, 0.947915, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_qolyl"]
+gradient = SubResource("Gradient_is72d")
+
+[sub_resource type="Curve" id="Curve_xmuen"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.868085, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.287928), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_iupvt"]
+curve = SubResource("Curve_xmuen")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_is72d"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 31.75
+radial_velocity_min = -2.23517e-05
+radial_velocity_max = 25.74
+gravity = Vector3(0, 980, 0)
+scale_min = 8.0
+scale_max = 14.0
+scale_curve = SubResource("CurveTexture_iupvt")
+color_ramp = SubResource("GradientTexture1D_qolyl")
+collision_mode = 1
+collision_friction = 0.0
+collision_bounce = 0.0
+collision_use_scale = true
+
+[node name="Water Drop Particle" type="GPUParticles2D"]
+emitting = false
+amount = 30
+process_material = SubResource("ParticleProcessMaterial_is72d")

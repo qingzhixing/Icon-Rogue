@@ -48,6 +48,7 @@ knockback_velocity = Vector2(250, -200)
 
 [node name="Sword Fly Particle" parent="." instance=ExtResource("4_v2wsh")]
 position = Vector2(-40, 0)
+emitting = false
 
 [node name="Disapear Timer" type="Timer" parent="."]
 wait_time = 2.0
