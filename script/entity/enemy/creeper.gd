@@ -6,8 +6,6 @@ class_name Creeper extends Enemy
 
 @export var explode_scene: PackedScene;
 
-@onready var entity_data: EntityData = $EntityData
-
 func _ready() -> void:
 	add_constant_force(Vector2(entity_data.get_constant_force_x(), 0))
 	
