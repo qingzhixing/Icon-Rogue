@@ -4,12 +4,17 @@ extends RigidBody2D
 @onready var disapear_timer: Timer = $"Disapear Timer"
 @onready var sword_fly_particle: GPUParticles2D = $"Sword Fly Particle"
 @onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var attack_area_collision_shape: CollisionShape2D = $"Attack Area/Attack Area Collision Shape"
 
 var _disapearing: bool = false;
 
 func _ready() -> void:
 	sword_fly_particle.emitting = true;
 	linear_velocity.x = entity_data.get_max_velocity_x();
+
+func _physics_process(_delta: float) -> void:
+	if _disapearing:
+		attack_area_collision_shape.disabled = true;
 
 func on_area_entered(area: Area2D) -> void:
 	if _disapearing:

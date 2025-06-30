@@ -20,7 +20,7 @@ emission_shape = 1
 emission_sphere_radius = 31.75
 radial_velocity_min = -2.23517e-05
 radial_velocity_max = 25.74
-gravity = Vector3(0, 980, 0)
+gravity = Vector3(0, 98, 0)
 scale_min = 8.0
 scale_max = 14.0
 scale_curve = SubResource("CurveTexture_iupvt")
@@ -31,6 +31,8 @@ collision_bounce = 0.0
 collision_use_scale = true
 
 [node name="Water Drop Particle" type="GPUParticles2D"]
+process_mode = 3
 emitting = false
-amount = 30
+amount = 4
+lifetime = 0.5
 process_material = SubResource("ParticleProcessMaterial_is72d")

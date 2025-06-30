@@ -33,7 +33,7 @@ rotation = 0.785397
 collision_layer = 8
 collision_mask = 20
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Attack Area"]
+[node name="Attack Area Collision Shape" type="CollisionShape2D" parent="Attack Area"]
 rotation = 0.785397
 shape = SubResource("CapsuleShape2D_8lpdd")
 
@@ -48,7 +48,6 @@ knockback_velocity = Vector2(250, -200)
 
 [node name="Sword Fly Particle" parent="." instance=ExtResource("4_v2wsh")]
 position = Vector2(-40, 0)
-emitting = false
 
 [node name="Disapear Timer" type="Timer" parent="."]
 wait_time = 2.0

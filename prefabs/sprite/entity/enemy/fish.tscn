@@ -27,7 +27,7 @@ lock_rotation = true
 script = ExtResource("1_bqoj2")
 
 [node name="Water Drop Particle" parent="." instance=ExtResource("2_48age")]
-position = Vector2(88, 0)
+position = Vector2(40, 0)
 
 [node name="Injured Effect" parent="." node_paths=PackedStringArray("target") instance=ExtResource("2_krajm")]
 target = NodePath("../Sprite2D")
@@ -59,11 +59,16 @@ texture = ExtResource("1_arv1m")
 collision_layer = 4
 collision_mask = 10
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Entity Area"]
+[node name="Entity Area Collision Shape" type="CollisionShape2D" parent="Entity Area"]
 position = Vector2(-16, 0)
 rotation = -1.57079
 shape = SubResource("CapsuleShape2D_shl4d")
 
+[node name="Queue Free Timer" type="Timer" parent="."]
+wait_time = 1.3
+one_shot = true
+
 [connection signal="on_damaged" from="EntityData" to="." method="on_damaged"]
 [connection signal="on_death" from="EntityData" to="." method="on_death"]
 [connection signal="area_entered" from="Entity Area" to="EnemyEntity" method="on_area_entered"]
+[connection signal="timeout" from="Queue Free Timer" to="." method="queue_free"]
