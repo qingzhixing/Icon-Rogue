@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bh4jmqayun8c0" path="res://assets/ui/heart.png" id="1_djtiv"]
 [ext_resource type="PackedScene" uid="uid://c7s61c8fyguyi" path="res://prefabs/map elements/ground/brick.tscn" id="1_qsiw5"]
-[ext_resource type="Script" uid="uid://d1tual0n1mui1" path="res://script/game_control/in game control/ui_controller.gd" id="1_w3nls"]
+[ext_resource type="Script" uid="uid://d1tual0n1mui1" path="res://script/game_control/in game control/hover_ui_controller.gd" id="1_w3nls"]
 [ext_resource type="Script" uid="uid://cjgblnbf58xy2" path="res://script/game_control/in game control/game_controller.gd" id="1_x8u7y"]
 [ext_resource type="PackedScene" uid="uid://dbr1d3ag3is1e" path="res://prefabs/sprite/entity/player/player.tscn" id="2_1tamk"]
 [ext_resource type="Theme" uid="uid://bvbf0bvyvo0vp" path="res://resources/theme/normal_theme.tres" id="2_ouui0"]
@@ -324,6 +324,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="background" type="ColorRect" parent="HoverUI/Upgrade Menu Overlay"]
+layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 color = Color(0.33, 0.448, 0.666, 0.561)
@@ -360,7 +361,9 @@ size_flags_vertical = 3
 theme = ExtResource("2_ouui0")
 theme_override_constants/outline_size = 15
 theme_override_font_sizes/font_size = 56
-text = "升级选项"
+text = "攻速
++
+30%"
 
 [node name="MarginContainer2" type="MarginContainer" parent="HoverUI/Upgrade Menu Overlay/MarginContainer/HBoxContainer"]
 layout_mode = 2
@@ -381,7 +384,9 @@ size_flags_vertical = 3
 theme = ExtResource("2_ouui0")
 theme_override_constants/outline_size = 15
 theme_override_font_sizes/font_size = 56
-text = "升级选项"
+text = "最大生命值
++
+10"
 
 [node name="MarginContainer3" type="MarginContainer" parent="HoverUI/Upgrade Menu Overlay/MarginContainer/HBoxContainer"]
 layout_mode = 2
@@ -402,7 +407,9 @@ size_flags_vertical = 3
 theme = ExtResource("2_ouui0")
 theme_override_constants/outline_size = 15
 theme_override_font_sizes/font_size = 56
-text = "升级选项"
+text = "无敌时间
++
+0.05s"
 
 [node name="Label" type="Label" parent="HoverUI/Upgrade Menu Overlay"]
 layout_mode = 0
@@ -626,3 +633,6 @@ occluder = SubResource("OccluderPolygon2D_81ico")
 [connection signal="pressed" from="HoverUI/Game Menu Overlay/HBoxContainer/Button_ClearSettings" to="HoverUI/Game Menu Overlay" method="_on_button_clear_settings_pressed"]
 [connection signal="pressed" from="HoverUI/Game Menu Overlay/HBoxContainer/Button_Exit" to="GameController" method="_on_button_exit_pressed"]
 [connection signal="pressed" from="HoverUI/Game Menu Overlay/HBoxContainer/Button_Back" to="HoverUI" method="_on_settings_button_back_pressed"]
+[connection signal="pressed" from="HoverUI/Upgrade Menu Overlay/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/Button_Left" to="HoverUI" method="_on_upgrade_button_pressed" binds= [0]]
+[connection signal="pressed" from="HoverUI/Upgrade Menu Overlay/MarginContainer/HBoxContainer/MarginContainer2/VBoxContainer2/Button_Mid" to="HoverUI" method="_on_upgrade_button_pressed" binds= [1]]
+[connection signal="pressed" from="HoverUI/Upgrade Menu Overlay/MarginContainer/HBoxContainer/MarginContainer3/VBoxContainer3/Button_Right" to="HoverUI" method="_on_upgrade_button_pressed" binds= [2]]

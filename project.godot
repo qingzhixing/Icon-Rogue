@@ -21,6 +21,7 @@ SoundPlayer="*res://script/game_control/global control/global_sound_player.gd"
 GameStopper="*res://script/game_control/global control/game_stopper.gd"
 GlobalSettings="*res://script/game_control/global control/global_settings.gd"
 HotkeyController="*res://script/game_control/global control/hotkey_controller.gd"
+GameStatistics="*res://script/game_control/global control/game_statistics.gd"
 
 [display]
 

@@ -52,13 +52,10 @@ target = NodePath("../Sprite2D")
 [node name="Particle Injured Spawner" parent="." instance=ExtResource("5_7djjd")]
 target_scene = ExtResource("5_nespj")
 manually_spawn = true
-spawn_interval_sec = 0.5
-start_spawn = false
 infinity_spawn = true
-spawn_amount = 10
-enable_life_time = true
 instance_life_time_sec = 1.5
 
 [connection signal="on_damaged" from="EntityData" to="." method="on_damaged"]
 [connection signal="on_death" from="EntityData" to="." method="on_death"]
 [connection signal="area_entered" from="Entity Area" to="." method="on_area_entered"]
+[connection signal="timeout" from="Invincible Timer" to="." method="_on_invincible_timer_timeout"]
