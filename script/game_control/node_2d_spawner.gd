@@ -56,6 +56,9 @@ func _ready():
 		spawn_timer.start();
 		if start_spawn:
 			spawn_instance();
+			
+func _process(_delta: float) -> void:
+	spawn_timer.wait_time = spawn_interval_sec;
 
 func _on_spawn_timer_timeout() -> void:
 	if Engine.is_editor_hint():

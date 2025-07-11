@@ -38,6 +38,7 @@ script = ExtResource("1_bkgrr")
 script = ExtResource("2_ugl7j")
 max_health = 20
 health = 20
+attack = 5
 max_velocity_x_abs = 200
 constant_force_x_abs = 30
 

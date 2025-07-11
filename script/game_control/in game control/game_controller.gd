@@ -13,7 +13,7 @@ func _process(_delta):
 	if _in_dead_process && Input.is_action_just_pressed("respawn_key"):
 		_in_dead_process = false;
 		do_restart();
-	if GameStatistics.dead_enemy_count % 5 == 0 && GameStatistics.dead_enemy_count != 0:
+	if GameStatistics.dead_enemy_count % 3 == 0 && GameStatistics.dead_enemy_count != 0:
 		GameStatistics.dead_enemy_count = 0;
 		GameStopper.set_game_stopped(true);
 		hover_ui.display_upgrade_menu();
