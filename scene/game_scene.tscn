@@ -66,6 +66,7 @@ layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HoverUI/Game State Overlay/VBoxContainer"]
 layout_mode = 2
+theme_override_constants/separation = 145
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HoverUI/Game State Overlay/VBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -86,7 +87,15 @@ layout_mode = 2
 theme = ExtResource("2_ouui0")
 theme_override_colors/font_color = Color(1, 0.333333, 0.164706, 1)
 theme_override_font_sizes/font_size = 28
-text = "Health: Infinity"
+text = "Health: Infinite"
+vertical_alignment = 1
+
+[node name="Player Level" type="Label" parent="HoverUI/Game State Overlay/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_ouui0")
+theme_override_font_sizes/font_size = 25
+text = "Player Level: Infinite"
+horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Game Over Overlay" type="Control" parent="HoverUI"]

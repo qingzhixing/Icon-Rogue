@@ -11,6 +11,7 @@ class_name PlayerController
 
 func _ready():
 	hover_ui.update_player_health_display(entity_data);
+	hover_ui.update_player_level(level);
 
 func on_area_entered(area: Area2D):
 	if !area.get_collision_layer_value(3): # 仅伤害Enemy
@@ -42,6 +43,7 @@ func on_damaged(_damage: int, _source: EntityData) -> void:
 func level_upgrade():
 	level += 1;
 	hover_ui.update_player_health_display(entity_data);
+	hover_ui.update_player_level(level);
 
 func respawn():
 	entity_data.health = entity_data.max_health;

@@ -7,7 +7,7 @@ class_name UIController
 @onready var _game_state_overlay: MarginContainer = $"Game State Overlay"
 @onready var _game_menu_overlay: Control = $"Game Menu Overlay"
 @onready var _upgrade_menu_overlay: Control = $"Upgrade Menu Overlay"
-
+@onready var player_level: Label = $"Game State Overlay/VBoxContainer/HBoxContainer/Player Level"
 @onready var game_controller: Node = %GameController
 
 func _ready() -> void:
@@ -44,3 +44,6 @@ func _on_upgrade_button_pressed(button_id: int) -> void:
 	print("Upgrade UI Button Pressed: %d" % button_id);
 	game_controller.player_upgrade(button_id);
 	_upgrade_menu_overlay.visible = false;
+
+func update_player_level(level: int):
+	player_level.text = "Player Level: %d" % level;
