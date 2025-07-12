@@ -27,6 +27,7 @@ func on_damaged(_damage: int, _source: EntityData) -> void:
 
 func on_death() -> void:
 	GameStatistics.dead_enemy_count += 1;
+	GameStatistics.killed_enemy_count += 1;
 	SoundPlayer.play_sfx("enemy/fish/fish_died" + str(randi() % 2 + 1) + ".ogg");
 	_disapearing = true;
 	queue_free_timer.start();

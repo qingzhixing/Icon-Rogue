@@ -13,8 +13,8 @@ func _process(_delta):
 	if _in_dead_process && Input.is_action_just_pressed("respawn_key"):
 		_in_dead_process = false;
 		do_restart();
-	if GameStatistics.dead_enemy_count % 3 == 0 && GameStatistics.dead_enemy_count != 0:
-		GameStatistics.dead_enemy_count = 0;
+	if GameStatistics.killed_enemy_count >= player.level * 3:
+		player.level_upgrade();
 		GameStopper.set_game_stopped(true);
 		hover_ui.display_upgrade_menu();
 
@@ -57,6 +57,7 @@ func player_upgrade(button_id: int):
 	elif button_id == 1:
 		player.entity_data.max_health += 10;
 		player.entity_data.health += 10;
+		hover_ui.update_player_health_display(player.entity_data);
 	elif button_id == 2:
 		player.invincible_timer.wait_time += 0.05;
 	GameStatistics.dead_enemy_count = 0;

@@ -67,18 +67,21 @@ layout_mode = 2
 [node name="HBoxContainer" type="HBoxContainer" parent="HoverUI/Game State Overlay/VBoxContainer"]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="HoverUI/Game State Overlay/VBoxContainer/HBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="HoverUI/Game State Overlay/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="HoverUI/Game State Overlay/VBoxContainer/HBoxContainer/HBoxContainer"]
 modulate = Color(1, 0.184314, 0, 1)
 layout_mode = 2
 texture = ExtResource("1_djtiv")
 expand_mode = 2
 
-[node name="VSeparator" type="VSeparator" parent="HoverUI/Game State Overlay/VBoxContainer/HBoxContainer"]
+[node name="VSeparator" type="VSeparator" parent="HoverUI/Game State Overlay/VBoxContainer/HBoxContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 9
 theme_override_styles/separator = SubResource("StyleBoxEmpty_5w0dq")
 
-[node name="Player Health" type="Label" parent="HoverUI/Game State Overlay/VBoxContainer/HBoxContainer"]
+[node name="Player Health" type="Label" parent="HoverUI/Game State Overlay/VBoxContainer/HBoxContainer/HBoxContainer"]
 layout_mode = 2
 theme = ExtResource("2_ouui0")
 theme_override_colors/font_color = Color(1, 0.333333, 0.164706, 1)
@@ -316,6 +319,7 @@ theme_override_font_sizes/font_size = 32
 text = "Back"
 
 [node name="Upgrade Menu Overlay" type="Control" parent="HoverUI"]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1152.0
@@ -429,6 +433,12 @@ position_smoothing_enabled = true
 [node name="Player" parent="." instance=ExtResource("2_1tamk")]
 unique_name_in_owner = true
 position = Vector2(-393, 144)
+
+[node name="Fish" parent="." instance=ExtResource("10_x8u7y")]
+position = Vector2(1136, 158)
+
+[node name="EntityData" parent="Fish" index="3"]
+invincible = true
 
 [node name="Map Elements" type="Node2D" parent="."]
 z_index = -5
@@ -636,3 +646,5 @@ occluder = SubResource("OccluderPolygon2D_81ico")
 [connection signal="pressed" from="HoverUI/Upgrade Menu Overlay/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/Button_Left" to="HoverUI" method="_on_upgrade_button_pressed" binds= [0]]
 [connection signal="pressed" from="HoverUI/Upgrade Menu Overlay/MarginContainer/HBoxContainer/MarginContainer2/VBoxContainer2/Button_Mid" to="HoverUI" method="_on_upgrade_button_pressed" binds= [1]]
 [connection signal="pressed" from="HoverUI/Upgrade Menu Overlay/MarginContainer/HBoxContainer/MarginContainer3/VBoxContainer3/Button_Right" to="HoverUI" method="_on_upgrade_button_pressed" binds= [2]]
+
+[editable path="Fish"]

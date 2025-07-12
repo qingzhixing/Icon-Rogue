@@ -2,7 +2,7 @@ extends Node
 
 class_name UIController
 
-@onready var _health_label: Label = $"Game State Overlay/VBoxContainer/HBoxContainer/Player Health"
+@onready var _health_label: Label = $"Game State Overlay/VBoxContainer/HBoxContainer/HBoxContainer/Player Health"
 @onready var _game_over_overlay: Control = $"Game Over Overlay"
 @onready var _game_state_overlay: MarginContainer = $"Game State Overlay"
 @onready var _game_menu_overlay: Control = $"Game Menu Overlay"

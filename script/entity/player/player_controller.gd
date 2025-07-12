@@ -7,6 +7,7 @@ class_name PlayerController
 @onready var injured_effect: InjuredEffect = $"Injured Effect"
 @onready var particle_injured_spawner: Node2DSpawner = $"Particle Injured Spawner"
 @onready var invincible_timer: Timer = $"Invincible Timer"
+@onready var level: int = 0;
 
 func _ready():
 	hover_ui.update_player_health_display(entity_data);
@@ -37,6 +38,10 @@ func on_damaged(_damage: int, _source: EntityData) -> void:
 	hover_ui.update_player_health_display(entity_data);
 	entity_data.invincible = true;
 	invincible_timer.start();
+
+func level_upgrade():
+	level += 1;
+	hover_ui.update_player_health_display(entity_data);
 
 func respawn():
 	entity_data.health = entity_data.max_health;

@@ -14,6 +14,7 @@ func _physics_process(_delta: float) -> void:
 
 
 func on_death() -> void:
+	GameStatistics.killed_enemy_count += 1;
 	GameStatistics.dead_enemy_count += 1;
 	SoundPlayer.play_sfx("enemy/creeper/death.ogg");
 	queue_free()
@@ -37,4 +38,5 @@ func delay_explode():
 	get_parent().add_child(explode)
 	explode.do_explode(entity_data)
 	explode.position = position
+	GameStatistics.killed_enemy_count -= 1; # 自爆不算玩家击杀
 	on_death()
