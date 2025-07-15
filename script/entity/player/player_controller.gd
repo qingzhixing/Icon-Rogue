@@ -43,7 +43,6 @@ func on_damaged(_damage: int, _source: EntityData) -> void:
 func level_upgrade():
 	level += 1;
 	hover_ui.update_player_health_display(entity_data);
-	hover_ui.update_player_level(level);
 
 func respawn():
 	entity_data.health = entity_data.max_health;
